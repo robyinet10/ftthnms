@@ -1,0 +1,2108 @@
+/* Custom CSS untuk FTTH Planner */
+
+/* ===================================
+   ENHANCED TABLE POPUP STYLES
+   =================================== */
+
+/* Modal popup untuk tabel daftar item dan routing */
+#genericModal .modal-xl {
+    max-width: 95vw;
+    margin: 10px auto;
+}
+
+#genericModal .modal-body {
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Search bar styling */
+.table-search-container {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+}
+
+.table-search-container .row {
+    align-items: center;
+}
+
+.table-search-container .form-group {
+    margin-bottom: 0;
+}
+
+.table-search-container .form-control {
+    border-radius: 20px;
+    border: 1px solid #ced4da;
+    padding: 8px 15px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.table-search-container .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+.table-search-container .input-group-text {
+    background: #007bff;
+    border: 1px solid #007bff;
+    color: white;
+    border-radius: 20px 0 0 20px;
+}
+
+.table-search-container .btn {
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.table-search-container .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Enhanced table styling */
+.table-responsive {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.table-responsive .table {
+    margin-bottom: 0;
+    font-size: 13px;
+}
+
+.table-responsive .table thead th {
+    background: linear-gradient(135deg, #495057 0%, #343a40 100%);
+    color: white;
+    border: none;
+    padding: 12px 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.table-responsive .table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.table-responsive .table tbody tr:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.table-responsive .table tbody td {
+    padding: 10px 8px;
+    vertical-align: middle;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Optimize column widths */
+.table-responsive .table th:first-child,
+.table-responsive .table td:first-child {
+    width: 40px;
+    text-align: center;
+    padding: 8px 4px;
+}
+
+.table-responsive .table th:last-child,
+.table-responsive .table td:last-child {
+    width: 160px;
+    text-align: center;
+    padding: 8px 4px;
+}
+
+/* Checkbox styling */
+.table-responsive .table input[type="checkbox"] {
+    transform: scale(1.1);
+    cursor: pointer;
+    margin: 0;
+    vertical-align: middle;
+}
+
+/* Checkbox column specific styling */
+.table-responsive .table th:first-child,
+.table-responsive .table td:first-child {
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Action buttons styling */
+.table-responsive .table .btn {
+    margin: 1px;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    min-width: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.table-responsive .table .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* Action column specific styling */
+.table-responsive .table td:last-child {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+/* Button group styling for actions */
+.table-responsive .table .btn-group {
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+/* Enhanced action buttons layout */
+.table-responsive .table td:last-child .btn {
+    flex: 1;
+    max-width: 45px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Specific button colors and spacing */
+.table-responsive .table .btn-primary {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    border: none;
+}
+
+.table-responsive .table .btn-info {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    border: none;
+}
+
+.table-responsive .table .btn-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    border: none;
+}
+
+/* Button icons styling */
+.table-responsive .table .btn i {
+    font-size: 11px;
+    margin: 0;
+}
+
+/* Ensure consistent button spacing */
+.table-responsive .table td:last-child {
+    padding: 8px 6px !important;
+}
+
+/* Action column container */
+.table-responsive .table td:last-child {
+    position: relative;
+}
+
+/* Button container for better alignment */
+.action-buttons-container {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+/* Badge styling */
+.table-responsive .table .badge {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+/* Item type icons */
+.table-responsive .table .fas,
+.table-responsive .table .far {
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+/* Coordinates column */
+.table-responsive .table td:nth-child(5) {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #6c757d;
+}
+
+/* Status column */
+.table-responsive .table td:nth-child(6) {
+    text-align: center;
+}
+
+/* Toolbar styling */
+.table-toolbar {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.table-toolbar .btn {
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.table-toolbar .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.table-toolbar .btn-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    border: none;
+}
+
+.table-toolbar .btn-danger:hover {
+    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+}
+
+.table-toolbar .btn-danger:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Total count styling */
+.table-total-count {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid #bbdefb;
+}
+
+/* Responsive design for table popup */
+@media (max-width: 768px) {
+    #genericModal .modal-xl {
+        max-width: 98vw;
+        margin: 5px;
+    }
+    
+    #genericModal .modal-body {
+        padding: 10px;
+    }
+    
+    .table-search-container {
+        padding: 10px;
+    }
+    
+    .table-search-container .row > div {
+        margin-bottom: 10px;
+    }
+    
+    .table-responsive .table {
+        font-size: 11px;
+    }
+    
+    .table-responsive .table thead th {
+        padding: 8px 4px;
+        font-size: 10px;
+    }
+    
+    .table-responsive .table tbody td {
+        padding: 6px 4px;
+    }
+    
+    .table-responsive .table .btn {
+        padding: 4px 8px;
+        font-size: 11px;
+        margin: 1px;
+        min-width: 30px;
+    }
+    
+    .table-responsive .table th:last-child,
+    .table-responsive .table td:last-child {
+        width: 140px;
+        padding: 6px 2px;
+    }
+    
+    .table-responsive .table th:first-child,
+    .table-responsive .table td:first-child {
+        width: 35px;
+        padding: 6px 2px;
+    }
+    
+    .action-buttons-container {
+        gap: 2px;
+    }
+    
+    .table-responsive .table td:last-child .btn {
+        max-width: 40px;
+        height: 28px;
+        padding: 4px 6px;
+    }
+    
+    .table-responsive .table .btn i {
+        font-size: 10px;
+    }
+    
+    .table-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .table-toolbar .btn {
+        margin-bottom: 5px;
+    }
+}
+
+/* Animation for table rows */
+@keyframes fadeInRow {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table-responsive .table tbody tr {
+    animation: fadeInRow 0.3s ease-out;
+}
+
+/* Loading state for table */
+.table-loading {
+    text-align: center;
+    padding: 40px;
+    color: #6c757d;
+}
+
+.table-loading .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 15px;
+}
+
+/* Empty state for table */
+.table-empty {
+    text-align: center;
+    padding: 40px;
+    color: #6c757d;
+}
+
+.table-empty .fas {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+/* Filter chips */
+.filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.filter-chip {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid #bbdefb;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-chip .close {
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.filter-chip .close:hover {
+    opacity: 1;
+}
+
+/* Additional modal improvements */
+#genericModal .modal-content {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#genericModal .modal-header {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    padding: 20px 25px;
+}
+
+#genericModal .modal-header .modal-title {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+#genericModal .modal-header .close {
+    color: white;
+    opacity: 0.8;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+#genericModal .modal-header .close:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+#genericModal .modal-footer {
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    border-radius: 0 0 12px 12px;
+    padding: 15px 25px;
+}
+
+/* Enhanced scrollbar for table */
+.table-responsive::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Table row animations */
+.table-responsive .table tbody tr {
+    animation: fadeInRow 0.3s ease-out;
+    animation-fill-mode: both;
+}
+
+.table-responsive .table tbody tr:nth-child(1) { animation-delay: 0.1s; }
+.table-responsive .table tbody tr:nth-child(2) { animation-delay: 0.2s; }
+.table-responsive .table tbody tr:nth-child(3) { animation-delay: 0.3s; }
+.table-responsive .table tbody tr:nth-child(4) { animation-delay: 0.4s; }
+.table-responsive .table tbody tr:nth-child(5) { animation-delay: 0.5s; }
+
+/* Enhanced button hover effects */
+.table-responsive .table .btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.table-responsive .table .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.table-responsive .table .btn:hover::before {
+    left: 100%;
+}
+
+/* Status badge enhancements */
+.table-responsive .table .badge {
+    position: relative;
+    overflow: hidden;
+}
+
+.table-responsive .table .badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.table-responsive .table .badge:hover::after {
+    transform: translateX(100%);
+}
+
+/* Loading state improvements */
+.table-loading {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.table-loading .spinner-border {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+}
+
+/* Empty state improvements */
+.table-empty {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.table-empty .fas {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Mobile optimizations */
+@media (max-width: 576px) {
+    #genericModal .modal-xl {
+        max-width: 100vw;
+        margin: 0;
+        height: 100vh;
+    }
+    
+    #genericModal .modal-content {
+        height: 100vh;
+        border-radius: 0;
+    }
+    
+    #genericModal .modal-header {
+        border-radius: 0;
+        padding: 15px 20px;
+    }
+    
+    #genericModal .modal-body {
+        padding: 15px;
+        max-height: calc(100vh - 140px);
+    }
+    
+    #genericModal .modal-footer {
+        border-radius: 0;
+        padding: 15px 20px;
+    }
+    
+    .table-search-container {
+        padding: 10px;
+    }
+    
+    .table-search-container .row > div {
+        margin-bottom: 10px;
+    }
+    
+    .table-toolbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .table-toolbar .btn {
+        width: 100%;
+    }
+}
+
+/* Print styles for table */
+@media print {
+    #genericModal .modal-content {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+    
+    .table-search-container,
+    .table-toolbar,
+    .table-responsive .table .btn {
+        display: none !important;
+    }
+    
+    .table-responsive .table {
+        border: 1px solid #000;
+    }
+    
+    .table-responsive .table th,
+    .table-responsive .table td {
+        border: 1px solid #000;
+        padding: 8px;
+    }
+}
+
+/* ===================================
+   EXISTING STYLES CONTINUE BELOW
+   =================================== */
+
+/* Map Styles */
+#map {
+    border-radius: 0;
+    border: none;
+}
+
+.leaflet-popup-content {
+    margin: 8px 15px;
+    line-height: 1.4;
+}
+
+.leaflet-popup-content h5 {
+    margin: 0 0 5px 0;
+    color: #007bff;
+}
+
+.popup-info {
+    font-size: 13px;
+}
+
+.popup-info .info-row {
+    margin-bottom: 5px;
+}
+
+.popup-info .info-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.popup-actions {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.popup-actions .btn {
+    margin: 2px;
+    padding: 4px 6px;
+    font-size: 10px;
+    min-width: 55px;
+    display: inline-block;
+}
+
+/* Custom marker icons */
+.custom-marker {
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.marker-olt {
+    background-color: #FF6B6B;
+}
+
+.marker-tiang {
+    background-color: #4ECDC4;
+}
+
+.marker-odp {
+    background-color: #45B7D1;
+}
+
+.marker-odc {
+    background-color: #96CEB4;
+}
+
+.marker-ont {
+    background-color: #FFA500;
+}
+
+.marker-htb {
+    background-color: #FF6B9D;
+}
+
+.marker-odc-cabinet {
+    background-color: #F39C12;
+}
+
+/* Modal styles */
+.modal-header {
+    background-color: #007bff;
+    color: white;
+}
+
+.modal-header .close {
+    color: white;
+    opacity: 0.8;
+}
+
+.modal-header .close:hover {
+    opacity: 1;
+}
+
+/* Form styles */
+.form-group label {
+    font-weight: 600;
+    color: #333;
+}
+
+.tube-color-option {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+}
+
+/* Routing styles */
+.routing-mode {
+    cursor: crosshair !important;
+}
+
+.route-line {
+    stroke-width: 4;
+    stroke-opacity: 0.8;
+}
+
+.route-installed {
+    stroke: #28a745;
+}
+
+.route-planned {
+    stroke: #ffc107;
+    stroke-dasharray: 10, 5;
+}
+
+.route-maintenance {
+    stroke: #dc3545;
+    stroke-dasharray: 5, 5;
+}
+
+/* Statistics cards */
+.small-box {
+    border-radius: 10px;
+}
+
+.small-box .icon {
+    font-size: 60px;
+}
+
+/* Additional card colors */
+.bg-purple {
+    background: linear-gradient(135deg, #8E44AD 0%, #9B59B6 100%) !important;
+    color: white !important;
+}
+
+.bg-purple .icon {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Text color for purple */
+.text-purple {
+    color: #8E44AD !important;
+}
+
+/* Sidebar brand */
+.brand-link {
+    border-bottom: 1px solid #4f5962;
+}
+
+.brand-link:hover {
+    text-decoration: none;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #map {
+        height: 400px !important;
+    }
+    
+    .modal-dialog {
+        margin: 10px;
+    }
+    
+    .popup-actions .btn {
+        display: block;
+        width: 100%;
+        margin: 3px 0;
+    }
+}
+
+/* Drag and drop indicators */
+.item-dragging {
+    opacity: 0.7;
+    transform: scale(1.1);
+    z-index: 1000;
+}
+
+.drop-zone {
+    border: 2px dashed #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Route drawing mode */
+.route-drawing .leaflet-container {
+    cursor: crosshair;
+}
+
+.route-point {
+    background-color: #ff6b6b;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+}
+
+/* Notifications */
+.toast {
+    min-width: 300px;
+}
+
+.toast-header {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Map controls */
+.map-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.map-controls .btn-group-vertical .btn {
+    margin-bottom: 5px;
+}
+
+/* Legend */
+.map-legend {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+    max-width: 200px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.legend-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Enhanced Map Controls */
+.leaflet-control-zoom {
+    border: none !important;
+    border-radius: 5px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+}
+
+.leaflet-control-zoom a {
+    background-color: #fff !important;
+    border: none !important;
+    color: #333 !important;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.leaflet-control-zoom a:hover {
+    background-color: #007bff !important;
+    color: white !important;
+    transform: scale(1.1);
+}
+
+.leaflet-control-custom {
+    border-radius: 3px !important;
+    transition: all 0.3s ease;
+}
+
+.leaflet-control-custom:hover {
+    background-color: #007bff !important;
+    color: white !important;
+    transform: scale(1.1);
+}
+
+.leaflet-control-custom i {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.leaflet-control-custom:hover i {
+    color: white !important;
+}
+
+/* Layer Control Styling */
+.leaflet-control-layers {
+    border-radius: 8px !important;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2) !important;
+    background: white !important;
+    padding: 8px !important;
+}
+
+.leaflet-control-layers-toggle {
+    background-image: none !important;
+    color: #333 !important;
+    font-size: 18px;
+}
+
+.leaflet-control-layers-expanded {
+    padding: 12px !important;
+}
+
+.leaflet-control-layers label {
+    font-weight: 500;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.leaflet-control-layers input[type="radio"] {
+    margin-right: 8px;
+}
+
+/* Coordinates Control */
+.leaflet-control-coords {
+    font-family: 'Courier New', monospace;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+}
+
+/* Scale Control */
+.leaflet-control-scale {
+    margin-bottom: 40px !important;
+}
+
+/* Help Control */
+.leaflet-control-help {
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+}
+
+.leaflet-control-help i {
+    color: #007bff;
+    font-size: 16px;
+}
+
+/* Fullscreen Control */
+.leaflet-control-fullscreen a {
+    background-color: white !important;
+    border-radius: 3px;
+    color: #333 !important;
+    transition: all 0.3s ease;
+}
+
+.leaflet-control-fullscreen a:hover {
+    background-color: #007bff !important;
+    color: white !important;
+}
+
+/* Map Zoom Buttons in Header */
+.map-zoom-controls {
+    display: inline-flex;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.map-zoom-controls .btn {
+    padding: 4px 8px;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+/* Enhanced Map Container */
+#map {
+    border: 2px solid #e3f2fd;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Map Loading Indicator */
+.map-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 10000;
+    display: none;
+}
+
+.map-loading.active {
+    display: block;
+}
+
+/* Responsive Map Controls */
+@media (max-width: 768px) {
+    .leaflet-control-layers {
+        max-width: 200px;
+    }
+    
+    .leaflet-control-coords {
+        font-size: 10px;
+        padding: 3px;
+    }
+    
+    .map-zoom-controls {
+        display: none; /* Hide header zoom controls on mobile */
+    }
+}
+
+/* Map Tooltips */
+.map-tooltip {
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.map-tooltip:before {
+    border-top-color: rgba(0,0,0,0.8);
+}
+
+/* Item Detail Modal Styles */
+.modal-xl {
+    max-width: 1140px;
+}
+
+.color-box {
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+.popup-actions {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.popup-actions .btn {
+    margin: 2px;
+    font-size: 11px;
+}
+
+.info-row {
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #666;
+}
+
+/* Enhanced table styling for detail modal */
+.modal-body .table td {
+    border-top: none;
+    padding: 8px 12px;
+    vertical-align: middle;
+}
+
+.modal-body .table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.modal-body .table td:first-child {
+    width: 35%;
+    font-weight: 500;
+    color: #495057;
+}
+
+.modal-body .card {
+    box-shadow: none;
+    border: 1px solid #dee2e6;
+}
+
+.modal-body .card-header {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Badge improvements */
+.badge {
+    font-size: 0.85em;
+    padding: 0.4em 0.6em;
+}
+
+/* Routing Type Modal Styles */
+.routing-options .card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.routing-options .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.routing-options .card-body {
+    padding: 2rem 1.5rem;
+}
+
+.routing-options .card-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.routing-options .card-text {
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.routing-options .btn {
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.routing-options .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Import KMZ Modal Styles */
+.import-instructions {
+    background-color: #f8f9fa;
+    border-left: 4px solid #17a2b8;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.import-instructions h6 {
+    margin-bottom: 10px;
+    color: #17a2b8;
+}
+
+.import-instructions ul {
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+
+.custom-file-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#importProgress {
+    height: 25px;
+}
+
+#importProgress .progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#previewContent {
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+#previewContent .table {
+    margin-bottom: 0;
+    font-size: 12px;
+}
+
+#previewContent .table th {
+    border-top: none;
+    background-color: #e9ecef;
+    font-weight: 600;
+}
+
+.alert {
+    border: none;
+    border-radius: 6px;
+}
+
+.alert-success {
+    background-color: #d1edff;
+    color: #0c5460;
+    border-left: 4px solid #28a745;
+}
+
+/* Monitoring Status Indicators */
+.monitoring-actions .btn-group {
+    flex-wrap: nowrap;
+}
+
+.monitoring-actions .btn {
+    flex: 1;
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+.monitoring-status-online {
+    background-color: #28a745 !important;
+    color: white !important;
+}
+
+.monitoring-status-warning {
+    background-color: #ffc107 !important;
+    color: black !important;
+}
+
+.monitoring-status-offline {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+/* Enhanced popup styling for monitoring items */
+.popup-info .info-row {
+    padding: 2px 0;
+}
+
+.monitoring-actions {
+    border-top: 1px solid #dee2e6;
+    padding-top: 8px;
+    margin-top: 8px;
+}
+
+/* Visual indicators for monitoring markers */
+.marker-monitoring-online {
+    border: 3px solid #28a745 !important;
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.6) !important;
+}
+
+.marker-monitoring-warning {
+    border: 3px solid #ffc107 !important;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.6) !important;
+}
+
+.marker-monitoring-offline {
+    border: 3px solid #dc3545 !important;
+    box-shadow: 0 0 10px rgba(220, 53, 69, 0.6) !important;
+}
+
+/* Notification enhancements for monitoring */
+.notification-monitoring {
+    max-width: 400px;
+}
+
+.notification-monitoring .notification-content {
+    line-height: 1.4;
+}
+
+/* Form conditional fields styling */
+#networkFields, #monitoringFields, #serverFields {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #f8f9fa;
+}
+
+#networkFields h6, #monitoringFields h6, #serverFields h6 {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* VLAN Fields Styling */
+.vlan-group {
+    background-color: #ffffff;
+    border: 1px solid #e3f2fd !important;
+    transition: all 0.3s ease;
+}
+
+.vlan-group:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-color: #2196f3 !important;
+}
+
+#vlanContainer .vlan-group:last-child {
+    margin-bottom: 0 !important;
+}
+
+.vlan-group .form-group {
+    margin-bottom: 15px;
+}
+
+.vlan-group .form-group label {
+    font-weight: 500;
+    color: #495057;
+    font-size: 13px;
+}
+
+.vlan-group .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.vlan-group .form-control:focus {
+    border-color: #2196f3;
+    box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+}
+
+.vlan-group .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    transition: all 0.3s ease;
+}
+
+.vlan-group .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+    transform: scale(1.05);
+}
+
+/* Server Fields Styling */
+#serverFields {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+#serverFields .alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+#serverFields .card {
+    border: 1px solid #e3f2fd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#serverFields .card-header {
+    background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+    color: white;
+    border-bottom: 1px solid #1976d2;
+}
+
+#serverFields .card-header .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    font-size: 12px;
+    padding: 4px 8px;
+}
+
+#serverFields .card-header .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    transform: translateY(-1px);
+}
+
+/* OLT Fields Styling */
+#oltFields {
+    background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+    border-radius: 8px;
+    border: 1px solid #bbdefb;
+}
+
+#oltFields .alert-info {
+    background-color: #d1ecf1;
+    border-color: #b7d4ea;
+    color: #0c5460;
+}
+
+.pon-group {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%) !important;
+    border: 1px solid #90caf9 !important;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.pon-group:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: #2196f3 !important;
+}
+
+.pon-vlan-container {
+    background-color: #ffffff;
+    border-radius: 4px;
+    min-height: 50px;
+}
+
+.pon-vlan-row {
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.pon-vlan-row:hover {
+    background-color: #e3f2fd;
+    border-color: #90caf9;
+}
+
+.pon-group label {
+    font-weight: 600;
+    color: #1976d2;
+}
+
+.pon-group .btn-primary {
+    background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+    border: none;
+    font-size: 12px;
+}
+
+.pon-group .btn-success {
+    background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+    border: none;
+    font-size: 11px;
+    padding: 2px 6px;
+}
+
+.pon-group .btn-danger {
+    background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+    border: none;
+}
+
+.pon-group .card {
+    border: 1px solid #e3f2fd;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.pon-group .card-header {
+    background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+    color: white;
+    border-bottom: 1px solid #1976d2;
+}
+
+/* PON VLAN Select Styling */
+.pon-vlan-id {
+    border: 2px solid #e3f2fd;
+    transition: all 0.3s ease;
+}
+
+.pon-vlan-id:focus {
+    border-color: #2196f3;
+    box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+}
+
+.pon-vlan-desc[readonly] {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.pon-vlan-desc[readonly]:focus {
+    background-color: #f8f9fa;
+    border-color: #e9ecef;
+    box-shadow: none;
+}
+
+/* VLAN option enhanced display */
+.pon-vlan-id option {
+    padding: 5px;
+}
+
+/* Refresh button styling */
+.btn-success.mr-1 {
+    animation: none;
+    transition: all 0.3s ease;
+}
+
+.btn-success.mr-1:hover {
+    transform: rotate(180deg);
+}
+
+/* Monitoring Controls Panel */
+#monitoring-controls {
+    transition: all 0.3s ease;
+}
+
+#monitoring-controls:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+#monitoring-controls .btn-group .btn {
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+#monitoring-controls .badge {
+    font-size: 11px;
+    padding: 4px 8px;
+}
+
+/* Monitoring Indicator */
+#monitoring-indicator {
+    animation: slideInRight 0.3s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Auto-monitoring countdown */
+#monitoring-countdown {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Responsive monitoring panel */
+@media (max-width: 768px) {
+    #monitoring-controls {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        min-width: auto;
+        font-size: 12px;
+    }
+    
+    #monitoring-controls .btn {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+}
+
+/* Real-time Ping Animations */
+@keyframes pingPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pingRipple {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+@keyframes pingWave {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+        border-width: 2px;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+        border-width: 0px;
+    }
+}
+
+@keyframes pingGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(40, 167, 69, 0.9), 0 0 30px rgba(40, 167, 69, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+    }
+}
+
+@keyframes pingFailGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(220, 53, 69, 0.9), 0 0 30px rgba(220, 53, 69, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+    }
+}
+
+@keyframes pingWarningGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.9), 0 0 30px rgba(255, 193, 7, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+    }
+}
+
+/* Ping animation classes */
+.ping-active {
+    animation: pingPulse 1s ease-in-out infinite;
+}
+
+.ping-success {
+    animation: pingGlow 2s ease-in-out;
+}
+
+.ping-failed {
+    animation: pingFailGlow 2s ease-in-out;
+}
+
+.ping-warning {
+    animation: pingWarningGlow 2s ease-in-out;
+}
+
+.ping-ripple {
+    position: absolute;
+    border: 2px solid #28a745;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: pingRipple 1.5s ease-out;
+}
+
+.ping-ripple-fail {
+    position: absolute;
+    border: 2px solid #dc3545;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: pingRipple 1.5s ease-out;
+}
+
+.ping-ripple-warning {
+    position: absolute;
+    border: 2px solid #ffc107;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: pingRipple 1.5s ease-out;
+}
+
+.ping-wave {
+    position: absolute;
+    border: 2px solid;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: pingWave 2s ease-out;
+}
+
+.ping-wave-success {
+    border-color: #28a745;
+}
+
+.ping-wave-fail {
+    border-color: #dc3545;
+}
+
+.ping-wave-warning {
+    border-color: #ffc107;
+}
+
+/* Real-time ping indicator */
+.ping-indicator {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ping-indicator-online {
+    background: #28a745;
+    animation: pingPulse 2s ease-in-out infinite;
+}
+
+.ping-indicator-offline {
+    background: #dc3545;
+    animation: pingPulse 3s ease-in-out infinite;
+}
+
+.ping-indicator-warning {
+    background: #ffc107;
+    animation: pingPulse 2.5s ease-in-out infinite;
+}
+
+.ping-indicator-checking {
+    background: #17a2b8;
+    animation: pingPulse 0.5s ease-in-out infinite;
+}
+
+/* Enhanced marker animations for monitoring items */
+.marker-monitoring-item {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.marker-monitoring-item.ping-in-progress {
+    animation: pingPulse 1s ease-in-out infinite;
+}
+
+.marker-monitoring-item.ping-success {
+    animation: pingGlow 2s ease-in-out;
+}
+
+.marker-monitoring-item.ping-failed {
+    animation: pingFailGlow 2s ease-in-out;
+}
+
+.marker-monitoring-item.ping-warning {
+    animation: pingWarningGlow 2s ease-in-out;
+}
+
+/* Interface Discovery Modal Styles */
+.interface-discovery-container {
+    padding: 1rem;
+}
+
+.performance-info {
+    background: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border-left: 4px solid #007bff;
+    margin-bottom: 1rem;
+}
+
+.performance-label {
+    font-weight: 600;
+    color: #6c757d;
+    margin-right: 0.5rem;
+}
+
+.performance-value {
+    color: #495057;
+    font-weight: 500;
+}
+
+.interface-status-badge {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+}
+
+.discovery-status-card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.discovery-icon {
+    padding: 1rem;
+    background: rgba(0, 123, 255, 0.1);
+    border-radius: 50%;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    line-height: 48px;
+}
+
+.discovery-title {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.discovery-stats {
+    margin: 1.5rem 0;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.discovery-actions {
+    margin-top: 2rem;
+}
+
+.discovery-actions .btn {
+    min-width: 140px;
+    font-weight: 500;
+}
+
+/* Interface Details Table */
+.interface-table-container {
+    margin-top: 1rem;
+}
+
+.interface-table-container h6 {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.interface-table-container .table {
+    margin-bottom: 0;
+}
+
+.interface-table-container .table th {
+    background: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.interface-table-container .table td {
+    vertical-align: middle;
+    padding: 0.75rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Topology Visualization */
+.topology-container {
+    margin-top: 1rem;
+}
+
+.topology-container h6 {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.connection-item {
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.connection-item:hover {
+    border-color: #007bff;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 123, 255, 0.15);
+}
+
+.connection-item .card-body {
+    padding: 1rem;
+}
+
+.connection-item .row {
+    align-items: center;
+}
+
+/* Modal Enhancements */
+#interfaceDetailsModal .modal-xl {
+    max-width: 1200px;
+}
+
+#interfaceDetailsModal .modal-body {
+    padding: 0;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#interfaceDetailsModal .modal-header {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    border-bottom: none;
+}
+
+#interfaceDetailsModal .modal-footer {
+    background: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .discovery-stats .col-6 {
+        margin-bottom: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .discovery-actions .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .interface-table-container .table-responsive {
+        font-size: 0.875rem;
+    }
+    
+    .connection-item .col-md-4,
+    .connection-item .col-md-2,
+    .connection-item .col-md-1 {
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+}
+
+/* Animation for modal appearance */
+.interface-discovery-container {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   PING INDICATOR STYLES FOR ACCESS POINTS
+   =================================== */
+
+.ping-indicator {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    z-index: 1000;
+    animation: none;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.ping-indicator-online {
+    background-color: #28a745;
+    box-shadow: 0 0 6px rgba(40, 167, 69, 0.6);
+}
+
+.ping-indicator-offline {
+    background-color: #dc3545;
+    box-shadow: 0 0 6px rgba(220, 53, 69, 0.6);
+}
+
+.ping-indicator-checking {
+    background-color: #ffc107;
+    animation: ping-pulse 1.5s infinite;
+    box-shadow: 0 0 8px rgba(255, 193, 7, 0.7);
+}
+
+.ping-indicator-warning {
+    background-color: #6c757d;
+    box-shadow: 0 0 6px rgba(108, 117, 125, 0.6);
+}
+
+@keyframes ping-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Enhanced marker styles for ping indicators */
+.custom-marker {
+    position: relative;
+}
+
+.custom-marker.ping-active {
+    animation: marker-ping-glow 2s ease-in-out;
+}
+
+@keyframes marker-ping-glow {
+    0% {
+        box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(33, 150, 243, 0.8), 0 0 30px rgba(33, 150, 243, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+    }
+}
+
+/* Ping status info in popups */
+.ping-status-info {
+    border-top: 1px solid #e9ecef;
+    padding-top: 8px;
+    margin-top: 8px;
+}
+
+.ping-status-info .badge {
+    font-size: 11px;
+}

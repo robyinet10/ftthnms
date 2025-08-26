@@ -1,0 +1,2180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTTH schematic NETWORK MANAGEMENT SYSTEM - Tutorial Lengkap</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Prism.js for Code Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        /* Print Styles */
+        @media print {
+            body { font-size: 12px; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; }
+            h1, h2 { page-break-after: avoid; }
+            pre, .table { page-break-inside: avoid; }
+            .container { max-width: none !important; }
+            
+            /* Image print optimization */
+            img { 
+                max-width: 100% !important; 
+                height: auto !important; 
+                page-break-inside: avoid; 
+            }
+            .shadow, .shadow-lg { 
+                box-shadow: none !important; 
+                border: 1px solid #ddd !important; 
+            }
+            
+            /* Optimize developer credit section for print */
+            .developer-credit { 
+                background: none !important;
+                border-top: 2px solid #333 !important;
+                margin-top: 30px !important;
+                padding: 20px 0 !important;
+                page-break-inside: avoid;
+            }
+            
+            .developer-credit h3,
+            .developer-credit h5,
+            .developer-credit h6 {
+                color: #333 !important;
+            }
+            
+            .developer-credit .lead {
+                color: #666 !important;
+            }
+            
+            .developer-credit img {
+                border: 2px solid #333 !important;
+                box-shadow: none !important;
+            }
+            
+            /* Print-friendly links - show URLs instead of buttons */
+            .developer-credit .btn {
+                display: none !important;
+            }
+            
+            .developer-credit .print-links {
+                display: block !important;
+            }
+            
+            .developer-credit .print-links a {
+                color: #333 !important;
+                text-decoration: none !important;
+                font-weight: 600 !important;
+                font-family: 'Courier New', monospace !important;
+                font-size: 0.9em !important;
+            }
+            
+            /* Print styling for contact links */
+            .developer-credit a[href^="mailto:"],
+            .developer-credit a[href^="https://wa.me/"] {
+                color: #333 !important;
+                text-decoration: none !important;
+                font-weight: 600 !important;
+            }
+            
+            /* Simplify footer for print */
+            .footer { 
+                background: none !important; 
+                color: #333 !important; 
+                border-top: 1px solid #ddd; 
+                padding: 10px 0 !important; 
+            }
+        }
+        
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+        }
+        
+        /* Headers */
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 25px;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+            margin-top: 25px;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        
+        h4 {
+            color: #8e44ad;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .toc h2 {
+            margin-top: 0;
+            color: #495057;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .toc ol {
+            margin-bottom: 0;
+        }
+        
+        .toc a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        
+        .toc a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        
+        /* Code Blocks */
+        pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        
+        code {
+            background: #f1f3f4;
+            color: #d73a49;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 90%;
+        }
+        
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        
+        /* Tables */
+        .table {
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        
+        .table th {
+            background: #3498db;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .table td, .table th {
+            border: 1px solid #ddd;
+            padding: 12px;
+            vertical-align: top;
+        }
+        
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #f8f9fa;
+        }
+        
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        /* Badges and Icons */
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        
+        /* Alert Boxes */
+        .alert-info {
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+            color: #0c5460;
+        }
+        
+        .alert-warning {
+            background-color: #fff3cd;
+            border-color: #ffecb5;
+            color: #856404;
+        }
+        
+        .alert-success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: white !important;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.3em; }
+        }
+        
+        /* Highlight important sections */
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+        
+        /* Status indicators */
+        .status-completed { color: #28a745; }
+        .status-pending { color: #ffc107; }
+        .status-error { color: #dc3545; }
+        
+        /* Image Styling */
+        .dashboard-image {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .dashboard-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+        }
+        
+        .cover-image {
+            border: 3px solid #3498db;
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.2);
+        }
+        
+        /* Responsive images */
+        @media (max-width: 768px) {
+            .dashboard-image {
+                max-height: 200px !important;
+            }
+        }
+        
+        /* Developer Credit Section */
+        .developer-credit {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-top: 3px solid #3498db;
+            margin-top: 50px;
+        }
+        
+        .developer-credit h3 {
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        
+        .developer-credit .lead {
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .developer-credit h5 {
+            color: #495057;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .developer-credit .btn {
+            transition: all 0.3s ease;
+        }
+        
+        .developer-credit .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .developer-credit .social-links a {
+            text-decoration: none;
+        }
+        
+        .developer-credit .social-links a:hover {
+            text-decoration: none;
+        }
+        
+        /* Profile image hover effect */
+        .developer-credit img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .developer-credit img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+        }
+        
+        /* Hide print-only links in normal view */
+        .print-links {
+            display: none;
+        }
+        
+        /* Responsive adjustments for developer section */
+        @media (max-width: 768px) {
+            .developer-credit {
+                text-align: center;
+            }
+            
+            .developer-credit .d-flex {
+                justify-content: center;
+            }
+            
+            .developer-credit img {
+                width: 120px !important;
+                height: 120px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg no-print">
+        <div class="container">
+            <a class="navbar-brand" href="#top">
+                <i class="fas fa-network-wired me-2"></i>
+                FTTH schematic NETWORK MANAGEMENT SYSTEM
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Title Section -->
+        <div class="text-center mb-5">
+            <h1 class="display-4 mb-3">
+                <i class="fas fa-satellite-dish emoji"></i>
+                FTTH schematic NETWORK MANAGEMENT SYSTEM
+            </h1>
+            <h2 class="h3 text-muted">Tutorial Lengkap</h2>
+            <p class="lead">Panduan Komprehensif Instalasi dan Penggunaan Aplikasi FTTH schematic NMS</p>
+            
+            <!-- Dashboard Cover Image -->
+            <div class="mt-4 mb-4">
+                <img src="cover.jpg" alt="FTTH schematic NMS Dashboard" class="img-fluid rounded shadow-lg cover-image dashboard-image" style="max-width: 100%; height: auto;">
+                <p class="text-muted mt-2"><em><i class="fas fa-desktop"></i> Dashboard Interface FTTH schematic NETWORK MANAGEMENT SYSTEM</em></p>
+                <div class="alert alert-info mt-3">
+                    <i class="fas fa-info-circle"></i> <strong>Tips:</strong> Klik pada gambar dashboard untuk memperbesar tampilan. Tekan ESC untuk menutup.
+                </div>
+            </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2><i class="fas fa-list emoji"></i>Daftar Isi</h2>
+            <ol>
+                <li><a href="#tentang-aplikasi">Tentang Aplikasi</a></li>
+                <li><a href="#instalasi-windows">Instalasi Windows (XAMPP)</a></li>
+                <li><a href="#instalasi-debian">Instalasi Debian/Ubuntu</a></li>
+                <li><a href="#instalasi-hosting">Instalasi di Hosting</a></li>
+                <li><a href="#konfigurasi-database">Konfigurasi Database</a></li>
+                <li><a href="#authentication">Authentication & User Management</a></li>
+                <li><a href="#panduan-fitur">Panduan Penggunaan Fitur</a></li>
+                <li><a href="#snmp-monitoring">SNMP Monitoring</a></li>
+                <li><a href="#export-import">Export/Import KMZ</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol>
+        </div>
+
+        <!-- Content Sections -->
+        <section id="tentang-aplikasi">
+            <h1><i class="fas fa-info-circle emoji"></i>Tentang Aplikasi</h1>
+            
+            <div class="highlight">
+                <p><strong>FTTH schematic NETWORK MANAGEMENT SYSTEM (FTTH schematic NMS)</strong> adalah aplikasi web-based untuk monitoring dan manajemen infrastruktur jaringan FTTH (Fiber to the Home) yang menyediakan:</p>
+                
+                <!-- Additional Dashboard Screenshots -->
+                <div class="row mt-4 mb-4">
+                    <div class="col-md-6 mb-3">
+                        <div class="text-center">
+                            <img src="accounting.jpg" alt="Accounting & Inventory Dashboard" class="img-fluid rounded shadow dashboard-image" style="max-height: 300px; object-fit: cover;">
+                            <p class="small text-muted mt-2"><i class="fas fa-dollar-sign"></i> <strong>Accounting & Inventory</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="text-center">
+                            <img src="snmp.jpg" alt="SNMP Monitoring Dashboard" class="img-fluid rounded shadow dashboard-image" style="max-height: 300px; object-fit: cover;">
+                            <p class="small text-muted mt-2"><i class="fas fa-chart-line"></i> <strong>SNMP Monitoring Dashboard</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3><i class="fas fa-star emoji"></i>Fitur Utama:</h3>
+
+            <h4><i class="fas fa-map-marker-alt emoji"></i>Manajemen Item FTTH Lengkap (11 Kategori):</h4>
+            <ul>
+                <li><i class="fas fa-server emoji"></i><strong>Server/Router</strong> - Core network equipment</li>
+                <li><i class="fas fa-building emoji"></i><strong>OLT (Optical Line Terminal)</strong> - PON head-end equipment</li>
+                <li><i class="fas fa-broadcast-tower emoji"></i><strong>Tiang Tumpu</strong> - Infrastructure poles</li>
+                <li><i class="fas fa-link emoji"></i><strong>Tiang ODP</strong> - Optical Distribution Point</li>
+                <li><i class="fas fa-globe emoji"></i><strong>Tiang ODC</strong> - Optical Distribution Cabinet (Pole Mounted & Cabinet)</li>
+                <li><i class="fas fa-home emoji"></i><strong>ONT (Optical Network Terminal)</strong> - Customer premises equipment</li>
+                <li><i class="fas fa-plug emoji"></i><strong>Tiang Joint Closure</strong> - Fiber optic connections</li>
+                <li><i class="fas fa-wifi emoji"></i><strong>HTB & Access Points</strong> - Additional network devices</li>
+                <li><i class="fas fa-users emoji"></i><strong>Pelanggan</strong> - End customers</li>
+            </ul>
+
+            <h4><i class="fas fa-map emoji"></i>Peta Interaktif Canggih:</h4>
+            <ul>
+                <li><strong>Multi-Layer Maps</strong>: OpenStreetMap, Satellite, Terrain, CartoDB</li>
+                <li><strong>Drag & Drop Items</strong>: Real-time position updates</li>
+                <li><strong>Interactive Routing</strong>: Cable routing dengan auto-path following</li>
+                <li><strong>Export/Import KMZ</strong>: Google Earth integration</li>
+                <li><strong>Auto-Generate Tiang Tumpu</strong>: Otomatis generate tiang setiap 30m</li>
+            </ul>
+
+            <h4><i class="fas fa-shield-alt emoji"></i>Authentication & Security:</h4>
+            <ul>
+                <li><strong>Role-Based Access Control</strong>: Admin (full CRUD) dan Teknisi (read-only)</li>
+                <li><strong>Session Management</strong>: Secure login/logout dengan auto-timeout</li>
+                <li><strong>Password Encryption</strong>: bcrypt hashing untuk keamanan</li>
+                <li><strong>API Protection</strong>: Semua endpoint dilindungi authentication</li>
+            </ul>
+
+            <h4><i class="fas fa-chart-line emoji"></i>SNMP Monitoring:</h4>
+            <ul>
+                <li><strong>Real-time Device Monitoring</strong>: CPU, Memory, Interface status</li>
+                <li><strong>Bandwidth Monitoring</strong>: Traffic in/out dengan grafik</li>
+                <li><strong>Optical Power Levels</strong>: Tx/Rx monitoring untuk fiber</li>
+                <li><strong>Network Topology Detection</strong>: Otomatis detect koneksi antar device</li>
+                <li><strong>Interface Storage</strong>: Persistent interface data di database</li>
+            </ul>
+
+            <h4><i class="fas fa-dollar-sign emoji"></i>Accounting & Pricing:</h4>
+            <ul>
+                <li><strong>Item Pricing Management</strong>: Tracking harga per item</li>
+                <li><strong>Financial Reports</strong>: Total investment dan cost analysis</li>
+                <li><strong>Export Data</strong>: Excel, CSV, PowerShell scripts</li>
+                <li><strong>Custom Items</strong>: Tambah item custom untuk inventory</li>
+            </ul>
+        </section>
+
+        <div class="page-break"></div>
+
+        <section id="instalasi-windows">
+            <h1><i class="fas fa-windows emoji"></i>Instalasi Windows (XAMPP)</h1>
+
+            <h3><i class="fas fa-cog emoji"></i>Requirement System:</h3>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Komponen</th>
+                            <th>Requirement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>OS</strong></td><td>Windows 7/8/10/11 (32-bit & 64-bit)</td></tr>
+                        <tr><td><strong>RAM</strong></td><td>Minimum 4GB (Recommended 8GB)</td></tr>
+                        <tr><td><strong>Storage</strong></td><td>2GB free space</td></tr>
+                        <tr><td><strong>Browser</strong></td><td>Chrome, Firefox, Edge, Safari</td></tr>
+                        <tr><td><strong>Internet</strong></td><td>Required untuk loading maps</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3><i class="fas fa-download emoji"></i>Step 1: Download & Install XAMPP</h3>
+
+            <div class="alert alert-info">
+                <h5>1. Download XAMPP</h5>
+                <pre><code>URL: https://www.apachefriends.org/
+Pilih: XAMPP untuk Windows dengan PHP 8.0+</code></pre>
+            </div>
+
+            <div class="alert alert-warning">
+                <h5>2. Install XAMPP</h5>
+                <pre><code>- Jalankan installer sebagai Administrator
+- Pilih komponen: Apache, MySQL, PHP, phpMyAdmin
+- Install di C:\xampp (default recommended)
+- Allow firewall access untuk Apache dan MySQL</code></pre>
+            </div>
+
+            <div class="alert alert-success">
+                <h5>3. Start Services</h5>
+                <pre><code>- Buka XAMPP Control Panel
+- Start Apache (port 80, 443)
+- Start MySQL (port 3306)
+- Pastikan status "Running" berwarna hijau</code></pre>
+            </div>
+
+            <h3><i class="fas fa-folder emoji"></i>Step 2: Deploy Aplikasi</h3>
+
+            <h5>1. Download Source Code</h5>
+            <pre><code>- Extract file FTTH_schematic_NMS.zip
+- Copy folder ke: C:\xampp\htdocs\ftthnms\</code></pre>
+
+            <h5>2. Verify Structure</h5>
+            <pre><code>C:\xampp\htdocs\ftthnms\
+├── index.php              # Dashboard utama
+├── login.php              # Login page
+├── users.php              # User management
+├── accounting.php          # Accounting page
+├── snmp_dashboard.php      # SNMP monitoring
+├── config/
+│   └── database.php        # Database configuration
+├── api/                    # REST API endpoints
+│   ├── auth.php           # Authentication
+│   ├── items.php          # CRUD items
+│   ├── routes.php         # Cable routing
+│   ├── snmp.php           # SNMP monitoring
+│   ├── statistics.php     # Statistics
+│   └── users.php          # User management
+├── assets/
+│   ├── css/               # Stylesheets
+│   └── js/                # JavaScript files
+├── database.sql           # Database schema
+└── Various guides...</code></pre>
+
+            <h3><i class="fas fa-database emoji"></i>Step 3: Setup Database</h3>
+
+            <h4>Method A: Via phpMyAdmin (Recommended)</h4>
+            <ol>
+                <li><strong>Buka phpMyAdmin</strong>: <code>http://localhost/phpmyadmin</code></li>
+                <li><strong>Create Database</strong>:
+                    <ul>
+                        <li>Klik "New" → Database name: <code>ftthnms</code></li>
+                        <li>Collation: <code>utf8mb4_general_ci</code></li>
+                        <li>Klik "Create"</li>
+                    </ul>
+                </li>
+                <li><strong>Import Schema</strong>:
+                    <ul>
+                        <li>Select database <code>ftthnms</code></li>
+                        <li>Tab "Import" → Choose file: <code>database.sql</code></li>
+                        <li>Klik "Go"</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h4>Method B: Via Command Line</h4>
+            <pre><code class="language-bash"># Buka Command Prompt di folder aplikasi
+cd C:\xampp\mysql\bin
+mysql -u root -p
+CREATE DATABASE ftthnms CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE ftthnms;
+source C:\xampp\htdocs\ftthnms\database.sql;
+EXIT;</code></pre>
+
+            <h3><i class="fas fa-wrench emoji"></i>Step 4: Konfigurasi</h3>
+
+            <h5>1. Edit Database Configuration</h5>
+            <pre><code class="language-php"># Edit: config/database.php
+
+&lt;?php
+class Database {
+    private $host = "localhost";
+    private $db_name = "ftthnms";          // Database: FTTH schematic NMS
+    private $username = "root";
+    private $password = "";              // Kosong untuk XAMPP default
+    private $port = "3306";
+    
+    // Connection method
+    public function getConnection() {
+        // PDO connection dengan error handling
+    }
+}
+?&gt;</code></pre>
+
+            <h5>2. Test Installation</h5>
+            <ol>
+                <li>Buka browser: <code>http://localhost/ftthnms</code></li>
+                <li>Akan redirect ke login page</li>
+                <li>Login dengan:
+                    <ul>
+                        <li>Username: <code>admin</code></li>
+                        <li>Password: <code>password</code></li>
+                    </ul>
+                </li>
+                <li>Dashboard akan terbuka dengan peta dan statistics</li>
+            </ol>
+        </section>
+
+        <div class="page-break"></div>
+
+        <section id="instalasi-debian">
+            <h1><i class="fab fa-ubuntu emoji"></i>Instalasi Debian/Ubuntu</h1>
+
+            <h3><i class="fas fa-cog emoji"></i>System Requirements:</h3>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Komponen</th>
+                            <th>Requirement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>OS</strong></td><td>Debian 9+ atau Ubuntu 18.04+ LTS</td></tr>
+                        <tr><td><strong>RAM</strong></td><td>Minimum 1GB (Recommended 2GB+)</td></tr>
+                        <tr><td><strong>Storage</strong></td><td>5GB free space</td></tr>
+                        <tr><td><strong>Network</strong></td><td>Public IP dengan domain/subdomain</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3><i class="fas fa-download emoji"></i>Step 1: Update System & Install LAMP</h3>
+
+            <pre><code class="language-bash"># Update system packages
+sudo apt update && sudo apt upgrade -y
+
+# Install required packages
+sudo apt install curl wget unzip git -y
+
+# Install Apache web server
+sudo apt install apache2 -y
+sudo systemctl start apache2
+sudo systemctl enable apache2
+
+# Install MySQL/MariaDB
+sudo apt install mariadb-server -y
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+sudo mysql_secure_installation
+
+# Install PHP 8.0+ dengan SNMP support
+sudo apt install software-properties-common -y
+sudo add-apt-repository ppa:ondrej/php -y
+sudo apt update
+
+sudo apt install php8.1 php8.1-mysql php8.1-curl php8.1-json \
+php8.1-mbstring php8.1-xml php8.1-zip php8.1-gd php8.1-snmp \
+libapache2-mod-php8.1 snmp snmpd snmp-mibs-downloader -y
+
+# Enable Apache modules
+sudo a2enmod rewrite
+sudo a2enmod ssl
+sudo systemctl restart apache2
+
+# 🔧 SNMP Configuration untuk Linux
+echo "🔧 Setting up SNMP for FTTH schematic NMS..."
+
+# Install SNMP tools dan MIBs
+sudo apt install snmp snmpd snmp-mibs-downloader -y
+
+# Configure SNMP daemon
+sudo cp /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.backup
+sudo tee /etc/snmp/snmpd.conf > /dev/null <<EOF
+# SNMP Configuration untuk FTTH schematic NMS
+agentAddress udp:161
+rocommunity public
+sysLocation "FTTH Network Management"
+sysContact "admin@ftthnms.com"
+sysName "FTTH-NMS-Server"
+EOF
+
+# Restart SNMP service
+sudo systemctl restart snmpd
+sudo systemctl enable snmpd
+
+# Test SNMP locally
+echo "Testing SNMP configuration..."
+snmpwalk -v2c -c public localhost 1.3.6.1.2.1.1.1.0
+
+# Verify PHP SNMP extension
+php -m | grep snmp</code></pre>
+
+            <h3><i class="fas fa-database emoji"></i>Step 2: Database Setup</h3>
+
+            <pre><code class="language-bash"># Login to MySQL
+sudo mysql -u root -p
+
+# Create database and user
+CREATE DATABASE ftthnms CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE USER 'ftthnms_user'@'localhost' IDENTIFIED BY 'secure_password_here';
+GRANT ALL PRIVILEGES ON ftthnms.* TO 'ftthnms_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;</code></pre>
+
+            <h3><i class="fas fa-folder emoji"></i>Step 3: Deploy Application</h3>
+
+            <pre><code class="language-bash"># Navigate to web directory
+cd /var/www/html
+
+# Download atau upload source code
+# Via Git (jika repository tersedia):
+sudo git clone https://github.com/your-repo/ftthnms.git
+
+# Via upload (jika dari file):
+sudo mkdir ftthnms
+# Upload semua file aplikasi ke /var/www/html/ftthnms/
+
+# Set permissions
+sudo chown -R www-data:www-data /var/www/html/ftthnms/
+sudo chmod -R 755 /var/www/html/ftthnms/
+sudo chmod -R 777 /var/www/html/ftthnms/assets/</code></pre>
+
+            <h3><i class="fas fa-wrench emoji"></i>Step 4: Configure Database</h3>
+
+            <pre><code class="language-bash"># Edit database configuration
+sudo nano /var/www/html/ftthnms/config/database.php</code></pre>
+
+            <pre><code class="language-php">&lt;?php
+class Database {
+    private $host = "localhost";
+    private $db_name = "ftthnms";          // FTTH schematic NMS Database
+    private $username = "ftthnms_user";
+    private $password = "secure_password_here";
+    private $port = "3306";
+    
+    // Connection with UTF8 support
+    public function getConnection() {
+        $dsn = "mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=utf8mb4";
+        return new PDO($dsn, $this->username, $this->password);
+    }
+}
+?&gt;</code></pre>
+
+            <h3><i class="fas fa-globe emoji"></i>Step 5: Apache Virtual Host</h3>
+
+            <pre><code class="language-bash"># Create virtual host configuration
+sudo nano /etc/apache2/sites-available/ftthnms.conf</code></pre>
+
+            <pre><code class="language-apache">&lt;VirtualHost *:80&gt;
+    ServerAdmin admin@yourdomain.com
+    ServerName yourdomain.com
+    ServerAlias www.yourdomain.com
+    DocumentRoot /var/www/html/ftthnms
+    
+    &lt;Directory /var/www/html/ftthnms&gt;
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    &lt;/Directory&gt;
+    
+    # SNMP monitoring requires these
+    &lt;Directory /var/www/html/ftthnms/api&gt;
+        Options -Indexes
+        AllowOverride All
+        Require all granted
+    &lt;/Directory&gt;
+    
+    ErrorLog ${APACHE_LOG_DIR}/ftthnms_error.log
+    CustomLog ${APACHE_LOG_DIR}/ftthnms_access.log combined
+&lt;/VirtualHost&gt;</code></pre>
+
+            <pre><code class="language-bash"># Enable site and restart Apache
+sudo a2ensite ftthnms.conf
+sudo a2dissite 000-default.conf
+sudo systemctl restart apache2</code></pre>
+
+            <h3><i class="fas fa-lock emoji"></i>Step 6: SSL Certificate (Recommended)</h3>
+
+            <pre><code class="language-bash"># Install Certbot for Let's Encrypt
+sudo apt install certbot python3-certbot-apache -y
+
+# Get SSL certificate
+sudo certbot --apache -d yourdomain.com -d www.yourdomain.com
+
+# Auto-renewal setup
+sudo crontab -e
+# Add line: 0 12 * * * /usr/bin/certbot renew --quiet</code></pre>
+        </section>
+
+        <div class="page-break"></div>
+
+        <section id="instalasi-hosting">
+            <h1><i class="fas fa-cloud emoji"></i>Instalasi di Hosting</h1>
+
+            <h3><i class="fas fa-server emoji"></i>Shared Hosting Requirements:</h3>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Komponen</th>
+                            <th>Requirement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>PHP</strong></td><td>8.0+ dengan extensions (PDO, JSON, SNMP, GD)</td></tr>
+                        <tr><td><strong>MySQL</strong></td><td>5.7+ atau MariaDB 10.2+</td></tr>
+                        <tr><td><strong>Storage</strong></td><td>Minimum 500MB</td></tr>
+                        <tr><td><strong>Memory</strong></td><td>256MB+ PHP memory limit</td></tr>
+                        <tr><td><strong>Execution Time</strong></td><td>300+ seconds</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3><i class="fas fa-upload emoji"></i>Step 1: Upload Files</h3>
+
+            <h5>1. Via cPanel File Manager:</h5>
+            <ol>
+                <li>Login to cPanel</li>
+                <li>Open File Manager</li>
+                <li>Navigate to public_html/</li>
+                <li>Create folder: ftthnms/</li>
+                <li>Upload semua file aplikasi</li>
+                <li>Extract jika dalam format zip</li>
+            </ol>
+
+            <h5>2. Via FTP:</h5>
+            <pre><code>FTP Client: FileZilla, WinSCP, etc.
+Upload semua file ke: /public_html/ftthnms/
+Set permissions: 755 untuk folders, 644 untuk files</code></pre>
+
+            <h3><i class="fas fa-database emoji"></i>Step 2: Database Setup</h3>
+
+            <h5>1. Via cPanel MySQL Wizard:</h5>
+            <ol>
+                <li>cPanel → MySQL Database Wizard</li>
+                <li>Database name: yourusername_ftthnms</li>
+                <li>Create database user</li>
+                <li>Assign user to database dengan All Privileges</li>
+                <li>Note down database details</li>
+            </ol>
+
+            <h5>2. Import Database:</h5>
+            <ol>
+                <li>cPanel → phpMyAdmin</li>
+                <li>Select database</li>
+                <li>Import → Choose database.sql</li>
+                <li>Execute import</li>
+            </ol>
+
+            <h3><i class="fas fa-wrench emoji"></i>Step 3: Configuration</h3>
+
+            <pre><code class="language-php"># Edit: config/database.php
+
+&lt;?php
+class Database {
+    private $host = "localhost";              // atau IP server hosting
+    private $db_name = "yourusername_ftthnms"; // FTTH schematic NMS Database
+    private $username = "yourusername_dbuser";
+    private $password = "your_db_password";
+    private $port = "3306";
+    
+    // Connection dengan charset UTF8MB4 untuk emoji support
+    public function getConnection() {
+        $dsn = "mysql:host={$this->host};dbname={$this->db_name};charset=utf8mb4";
+        $options = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ];
+        return new PDO($dsn, $this->username, $this->password, $options);
+    }
+}
+?&gt;</code></pre>
+
+            <h3><i class="fas fa-shield-alt emoji"></i>Step 5: Security Setup</h3>
+
+            <h5>1. File Permissions:</h5>
+            <pre><code># Via cPanel File Manager atau FTP
+Folders: 755
+Files: 644
+config/: 750
+config/database.php: 640</code></pre>
+
+            <h5>2. .htaccess Security:</h5>
+            <pre><code class="language-apache"># Create: /public_html/ftthnms/.htaccess
+
+# Disable directory browsing
+Options -Indexes
+
+# Protect config directory
+&lt;Files "config/*"&gt;
+    Deny from all
+&lt;/Files&gt;
+
+# Protect database files
+&lt;Files "*.sql"&gt;
+    Deny from all
+&lt;/Files&gt;
+
+# Enable mod_rewrite
+RewriteEngine On
+
+# Force HTTPS (optional)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]</code></pre>
+        </section>
+
+        <div class="page-break"></div>
+
+        <section id="konfigurasi-database">
+            <h1><i class="fas fa-database emoji"></i>Konfigurasi Database</h1>
+
+            <h3><i class="fas fa-table emoji"></i>Database Schema Overview:</h3>
+
+            <h4>Core Tables:</h4>
+            <ul>
+                <li><strong><code>ftth_items</code></strong> - Data infrastruktur FTTH (items, coordinates, properties)</li>
+                <li><strong><code>cable_routes</code></strong> - Routing kabel antar items dengan coordinates</li>
+                <li><strong><code>users</code></strong> - User accounts dan roles (admin/teknisi)</li>
+                <li><strong><code>item_types</code></strong> - Jenis-jenis item (11 categories dengan icons)</li>
+                <li><strong><code>monitoring_logs</code></strong> - Log monitoring ping status</li>
+            </ul>
+
+            <h4>Master Data Tables:</h4>
+            <ul>
+                <li><strong><code>tube_colors</code></strong> - 32 warna tube dengan hex codes</li>
+                <li><strong><code>splitter_types</code></strong> - Jenis splitter (main & ODP) dengan ratio</li>
+                <li><strong><code>server_vlans</code></strong> - Konfigurasi VLAN untuk Server/Router</li>
+                <li><strong><code>olt_pons</code></strong> - Konfigurasi PON ports untuk OLT</li>
+                <li><strong><code>pon_vlans</code></strong> - Relasi PON-VLAN mapping</li>
+            </ul>
+
+            <h4>SNMP Monitoring Tables:</h4>
+            <ul>
+                <li><strong><code>snmp_metrics</code></strong> - Real-time SNMP monitoring data</li>
+                <li><strong><code>snmp_oid_mapping</code></strong> - OID mapping per device type</li>
+                <li><strong><code>device_interfaces</code></strong> - Persistent interface information</li>
+                <li><strong><code>interface_ip_addresses</code></strong> - IP addresses per interface</li>
+                <li><strong><code>interface_vlans</code></strong> - VLAN configuration per interface</li>
+                <li><strong><code>interface_wireless</code></strong> - Wireless interface information</li>
+                <li><strong><code>interface_bridges</code></strong> - Bridge interface information</li>
+                <li><strong><code>interface_tunnels</code></strong> - Tunnel interface information</li>
+                <li><strong><code>network_topology</code></strong> - Device connection mapping</li>
+                <li><strong><code>interface_traffic_history</code></strong> - Traffic history untuk trend analysis</li>
+            </ul>
+
+            <h4>Enhanced ODC Management Tables:</h4>
+            <ul>
+                <li><strong><code>odc_ports</code></strong> - ODC port management (input/output ports)</li>
+                <li><strong><code>odc_pon_mapping</code></strong> - ODC-PON connection mapping dengan VLAN</li>
+            </ul>
+
+            <h4>Database Views:</h4>
+            <ul>
+                <li><strong><code>latest_snmp_metrics</code></strong> - Latest SNMP metrics per device</li>
+                <li><strong><code>interface_summary</code></strong> - Interface summary dengan IP addresses</li>
+                <li><strong><code>topology_view</code></strong> - Network topology yang readable</li>
+            </ul>
+
+            <h3><i class="fas fa-tachometer-alt emoji"></i>Database Optimization:</h3>
+
+            <pre><code class="language-sql">-- Performance Indexes (dari database.sql)
+-- Core Item Indexes
+CREATE INDEX idx_core_color ON ftth_items(core_color_id);
+CREATE INDEX idx_cable_type ON ftth_items(item_cable_type);
+CREATE INDEX idx_core_usage ON ftth_items(core_used, total_core_capacity);
+CREATE INDEX idx_monitoring_status ON ftth_items(monitoring_status);
+CREATE INDEX idx_ip_address ON ftth_items(ip_address);
+CREATE INDEX idx_item_type ON ftth_items(item_type);
+CREATE INDEX idx_item_price ON ftth_items(item_price);
+CREATE INDEX idx_snmp_enabled ON ftth_items(snmp_enabled);
+CREATE INDEX idx_snmp_status ON ftth_items(snmp_enabled, monitoring_status);
+
+-- ODC Enhancement Indexes
+CREATE INDEX idx_odc_type ON ftth_items(odc_type);
+CREATE INDEX idx_odc_capacity ON ftth_items(odc_capacity);
+CREATE INDEX idx_odc_pon_connection ON ftth_items(odc_pon_connection);
+
+-- User & Monitoring Indexes
+CREATE INDEX idx_monitoring_logs_item ON monitoring_logs(item_id, ping_time);
+CREATE INDEX idx_username ON users(username);
+CREATE INDEX idx_user_role ON users(role);
+
+-- SNMP Interface Indexes
+CREATE INDEX idx_device_interfaces_device ON device_interfaces(device_id);
+CREATE INDEX idx_device_interfaces_status ON device_interfaces(oper_status, admin_status);
+CREATE INDEX idx_interface_ips_interface ON interface_ip_addresses(interface_id);
+CREATE INDEX idx_topology_source ON network_topology(source_device_id, source_interface_id);
+CREATE INDEX idx_topology_active ON network_topology(is_active, verified, last_seen);
+
+-- Traffic History Index
+CREATE INDEX idx_traffic_history_interface_time ON interface_traffic_history(interface_id, sample_time);
+
+-- Latest SNMP Metrics View
+CREATE VIEW latest_snmp_metrics AS
+SELECT sm1.*
+FROM snmp_metrics sm1
+INNER JOIN (
+    SELECT item_id, MAX(metric_time) as max_time
+    FROM snmp_metrics GROUP BY item_id
+) sm2 ON sm1.item_id = sm2.item_id AND sm1.metric_time = sm2.max_time;</code></pre>
+
+            <h3><i class="fas fa-sync emoji"></i>Update Scripts:</h3>
+
+            <p>FTTH schematic NMS menyediakan multiple database scripts untuk setup dan upgrade:</p>
+
+            <div class="alert alert-info">
+                <h5><i class="fas fa-database"></i> Default Data yang Tersedia:</h5>
+                <ul>
+                    <li><strong>Item Types:</strong> 11 kategori (OLT, Tiang Tumpu, ODP, ODC, ONT, Server, Access Point, dll)</li>
+                    <li><strong>Tube Colors:</strong> 32 warna standard dengan hex codes</li>
+                    <li><strong>Splitter Types:</strong> Main (1:2, 1:3, 1:4) dan ODP (1:2, 1:4, 1:8, 1:16)</li>
+                    <li><strong>SNMP OID Mapping:</strong> Universal, Server, OLT, Access Point, ONT OIDs</li>
+                    <li><strong>Default Users:</strong> admin, teknisi1, teknisi2, supervisor (password: "password")</li>
+                </ul>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Script File</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>database.sql</code></td><td><span class="badge bg-success">Main Schema</span> - Complete database schema dengan semua tables</td></tr>
+                        <tr><td><code>update_database.sql</code></td><td>Main update script untuk upgrade existing</td></tr>
+                        <tr><td><code>update_database_users.sql</code></td><td>Add authentication system (admin/teknisi roles)</td></tr>
+                        <tr><td><code>update_database_odc_enhancement.sql</code></td><td>ODC enhancements (pole/cabinet, ports, PON mapping)</td></tr>
+                        <tr><td><code>update_database_pon_integration.sql</code></td><td>PON integration dengan VLAN configuration</td></tr>
+                        <tr><td><code>snmp_integration_upgrade.sql</code></td><td>SNMP monitoring upgrade dengan interface discovery</td></tr>
+                        <tr><td><code>update_database_auto_generate_tiang_tumpu.sql</code></td><td>Auto-generate features untuk routing</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <section id="authentication">
+            <h1><i class="fas fa-user-shield emoji"></i>Authentication & User Management</h1>
+
+            <h3><i class="fas fa-users-cog emoji"></i>User Roles & Permissions:</h3>
+
+            <h4>Role: Admin</h4>
+            <ul class="status-completed">
+                <li><i class="fas fa-check"></i> <strong>Full CRUD Access</strong>: Create, Read, Update, Delete semua items</li>
+                <li><i class="fas fa-check"></i> <strong>User Management</strong>: Kelola user accounts</li>
+                <li><i class="fas fa-check"></i> <strong>SNMP Configuration</strong>: Setup dan monitoring SNMP devices</li>
+                <li><i class="fas fa-check"></i> <strong>Accounting Access</strong>: View financial reports dan pricing</li>
+                <li><i class="fas fa-check"></i> <strong>System Configuration</strong>: Semua system settings</li>
+            </ul>
+
+            <h4>Role: Teknisi</h4>
+            <ul>
+                <li class="status-completed"><i class="fas fa-check"></i> <strong>Read-Only Access</strong>: View semua data dan maps</li>
+                <li class="status-completed"><i class="fas fa-check"></i> <strong>Export Data</strong>: Export KMZ, reports</li>
+                <li class="status-error"><i class="fas fa-times"></i> <strong>No Create/Edit/Delete</strong>: Tidak bisa modify data</li>
+                <li class="status-error"><i class="fas fa-times"></i> <strong>No User Management</strong>: Tidak bisa kelola users</li>
+                <li class="status-error"><i class="fas fa-times"></i> <strong>No System Config</strong>: Tidak bisa ubah settings</li>
+            </ul>
+
+            <h3><i class="fas fa-key emoji"></i>Default User Accounts:</h3>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Role</th>
+                            <th>Full Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>admin</code></td><td><code>password</code></td><td><span class="badge bg-danger">admin</span></td><td>Administrator System</td></tr>
+                        <tr><td><code>teknisi1</code></td><td><code>password</code></td><td><span class="badge bg-warning">teknisi</span></td><td>Teknisi Lapangan 1</td></tr>
+                        <tr><td><code>teknisi2</code></td><td><code>password</code></td><td><span class="badge bg-warning">teknisi</span></td><td>Teknisi Lapangan 2</td></tr>
+                        <tr><td><code>supervisor</code></td><td><code>password</code></td><td><span class="badge bg-danger">admin</span></td><td>Supervisor Jaringan</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3><i class="fas fa-cogs emoji"></i>User Management Operations:</h3>
+
+            <h4>Adding New Users:</h4>
+            <ol>
+                <li><strong>Login sebagai Admin</strong></li>
+                <li><strong>Navigate</strong>: Dashboard → User Management</li>
+                <li><strong>Add User</strong>:
+                    <ul>
+                        <li>Username: [unique_username]</li>
+                        <li>Password: [secure_password]</li>
+                        <li>Role: admin / teknisi</li>
+                        <li>Full Name: [User Display Name]</li>
+                        <li>Email: [user@email.com]</li>
+                        <li>Status: active</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h4>Password Security:</h4>
+            <ul>
+                <li><strong>Hashing</strong>: bcrypt dengan salt</li>
+                <li><strong>Minimum Length</strong>: 8 characters (recommended)</li>
+                <li><strong>Change Password</strong>: User bisa change own password</li>
+                <li><strong>Admin Reset</strong>: Admin bisa reset password users</li>
+            </ul>
+
+            <h4>Session Management:</h4>
+            <ul>
+                <li><strong>Session Timeout</strong>: 30 menit inactivity</li>
+                <li><strong>Warning Alert</strong>: 5 menit before timeout</li>
+                <li><strong>Auto-logout</strong>: Automatic logout setelah timeout</li>
+                <li><strong>Remember Login</strong>: Optional remember untuk 7 hari</li>
+            </ul>
+        </section>
+
+        <div class="page-break"></div>
+
+        <section id="panduan-fitur">
+            <h1><i class="fas fa-tools emoji"></i>Panduan Penggunaan Fitur</h1>
+
+            <h3><i class="fas fa-map-marker-alt emoji"></i>Manajemen Item FTTH</h3>
+
+            <h4>Menambah Item Baru:</h4>
+
+            <div class="alert alert-info">
+                <h5>Method 1: Via Sidebar Menu</h5>
+                <ol>
+                    <li>Login ke system</li>
+                    <li>Sidebar → "Tambah [Item Type]" (e.g., Tambah OLT)</li>
+                    <li>Form modal akan terbuka</li>
+                    <li>Isi semua field required:
+                        <ul>
+                            <li>Name: Nama item</li>
+                            <li>Description: Deskripsi detail</li>
+                            <li>Address: Alamat lokasi</li>
+                            <li>Klik di peta untuk set koordinat</li>
+                        </ul>
+                    </li>
+                    <li>Isi field specific sesuai item type</li>
+                    <li>Klik "Simpan"</li>
+                </ol>
+            </div>
+
+            <div class="alert alert-warning">
+                <h5>Method 2: Via Map Click</h5>
+                <ol>
+                    <li>Right-click di peta pada lokasi yang diinginkan</li>
+                    <li>Pilih "Add Item Here"</li>
+                    <li>Select item type dari dropdown</li>
+                    <li>Form akan ter-fill coordinates otomatis</li>
+                    <li>Lengkapi data lainnya</li>
+                    <li>Simpan</li>
+                </ol>
+            </div>
+
+            <h4>Item Types & Specific Fields:</h4>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Item Type</th>
+                            <th>Specific Fields</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-server"></i> <strong>Server/Router</strong></td>
+                            <td>Management Info: IP address, port, username, password<br>
+                                SNMP Config: Version, community, authentication<br>
+                                Interface Monitoring: Network interfaces</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-building"></i> <strong>OLT</strong></td>
+                            <td>PON Configuration: 3 PON ports per OLT<br>
+                                VLAN Settings: VLAN 100, 200, 300<br>
+                                Upstream Server: Connection ke backbone<br>
+                                SNMP Monitoring: Interface status, optical power</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-broadcast-tower"></i> <strong>Tiang Tumpu</strong></td>
+                            <td>Installation Type: Pole, ground, wall mounted<br>
+                                Height: Tinggi tiang dalam meter<br>
+                                Material: Concrete, steel, wood<br>
+                                Auto-generate: Otomatis generate setiap 30m pada routing</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-globe"></i> <strong>ODC</strong></td>
+                            <td>Type: Pole Mounted vs Ground Mounted (Cabinet)<br>
+                                Capacity Planning: Berdasarkan splitter ratio<br>
+                                PON Connection: Link ke OLT PON ports<br>
+                                Port Management: Input/output ports tracking</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-link"></i> <strong>ODP</strong></td>
+                            <td>Splitter Configuration: 1:8, 1:16, 1:32<br>
+                                Service Area: Coverage area radius<br>
+                                Customer Capacity: Max customers per ODP</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-home"></i> <strong>ONT</strong></td>
+                            <td>Customer Info: Nama pelanggan, kontak<br>
+                                Service Plan: Bandwidth package<br>
+                                HTB Configuration: Traffic shaping<br>
+                                Connection Status: Online/offline monitoring</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3><i class="fas fa-route emoji"></i>Routing Kabel</h3>
+
+            <h4>Membuat Route Baru:</h4>
+
+            <div class="alert alert-success">
+                <h5>Method 1: Via Item Popup</h5>
+                <ol>
+                    <li>Klik item source di peta</li>
+                    <li>Klik "Route Jalan" atau "Route Garis Lurus"</li>
+                    <li>Modal routing options akan muncul:
+                        <ul>
+                            <li>Auto Generate Tiang Tumpu: [checkbox]</li>
+                            <li>Interval Jarak: 30 meter [slider: 10-100m]</li>
+                            <li>Generate di Tikungan: [checkbox]</li>
+                        </ul>
+                    </li>
+                    <li>Klik "Simpan Pengaturan"</li>
+                    <li>Klik item destination</li>
+                    <li>Route otomatis terbuat dengan specifications</li>
+                </ol>
+            </div>
+
+            <h4>Route Types:</h4>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Route Type</th>
+                            <th>Description</th>
+                            <th>Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-road"></i> <strong>Route Jalan</strong></td>
+                            <td>Menggunakan OSRM routing engine<br>
+                                Mengikuti jalan yang ada<br>
+                                Coordinate points mengikuti path jalan</td>
+                            <td>Ideal untuk backbone dan distribution cables</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-minus"></i> <strong>Route Garis Lurus</strong></td>
+                            <td>Point-to-point direct connection<br>
+                                Minimal coordinate points<br>
+                                Faster calculation</td>
+                            <td>Ideal untuk short distances</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Route Properties:</h4>
+            <ul>
+                <li><strong>Cable Type</strong>: Fiber Optic, Copper, Hybrid</li>
+                <li><strong>Core Count</strong>: 2, 4, 8, 12, 24, 48, 96, 144, 288 cores</li>
+                <li><strong>Status</strong>: Planned (kuning), Installed (hijau), Maintenance (merah)</li>
+                <li><strong>Distance</strong>: Otomatis calculated dalam meter</li>
+                <li><strong>Auto-Generated Tiang</strong>: Track generated infrastructure</li>
+            </ul>
+
+            <h3><i class="fas fa-magic emoji"></i>Auto-Generate Tiang Tumpu</h3>
+
+            <div class="highlight">
+                <h4>Configuration:</h4>
+                <p>Setting otomatis generate tiang tumpu:</p>
+                <ol>
+                    <li>Enable checkbox: "Auto Generate Tiang Tumpu"</li>
+                    <li>Set interval: 10-100 meter (default: 30m)</li>
+                    <li>Enable "Generate di Tikungan" untuk turns</li>
+                    <li>Generate otomatis saat create route</li>
+                </ol>
+            </div>
+
+            <h4>Generated Tiang Properties:</h4>
+            <ul>
+                <li><strong>Naming</strong>: "Tiang Tumpu Auto" atau "Tiang Tumpu Tikungan"</li>
+                <li><strong>Type</strong>: Marked as auto-generated</li>
+                <li><strong>Behavior</strong>: Display-only, tidak bisa diedit</li>
+                <li><strong>Tracking</strong>: Linked ke route yang generate</li>
+                <li><strong>Cleanup</strong>: Auto-delete saat route dihapus</li>
+            </ul>
+
+            <h3><i class="fas fa-chart-bar emoji"></i>Dashboard & Statistics</h3>
+
+            <!-- Dashboard Preview Image -->
+            <div class="text-center mb-4">
+                <img src="cover.jpg" alt="Dashboard Statistics" class="img-fluid rounded shadow dashboard-image" style="max-width: 80%; height: auto; filter: brightness(1.1);">
+                <p class="small text-muted mt-2"><i class="fas fa-chart-bar"></i> <strong>Dashboard dengan Statistics Cards dan Interactive Map</strong></p>
+            </div>
+
+            <h4>Horizontal Statistics Cards:</h4>
+            <p>Layout 1 row dengan 10 compact cards:</p>
+            <div class="alert alert-info">
+                <code>[Server][OLT][Tiang][ODP][ONT][Routes][Joint][HTB][Access][Total Items]</code>
+            </div>
+
+            <h5>Real-time Updates:</h5>
+            <ul>
+                <li>Statistics update otomatis saat data berubah</li>
+                <li>Color-coded berdasarkan item types</li>
+                <li>Click card untuk quick navigation</li>
+            </ul>
+
+            <h4>Statistics Detail:</h4>
+            <ul>
+                <li><strong>Total Items</strong>: Jumlah total semua item</li>
+                <li><strong>Per Type Count</strong>: Breakdown per kategori</li>
+                <li><strong>Auto-Generated</strong>: Track auto-generated items</li>
+                <li><strong>Route Statistics</strong>: Total routes, distance</li>
+                <li><strong>Investment Summary</strong>: Total harga (di Accounting page)</li>
+            </ul>
+        </section>
+
+        <div class="page-break"></div>
+
+        <section id="snmp-monitoring">
+            <h1><i class="fas fa-chart-line emoji"></i>SNMP Monitoring</h1>
+
+            <h3><i class="fas fa-cog emoji"></i>SNMP Configuration</h3>
+
+            <h4>Supported Devices:</h4>
+            <ul>
+                <li><i class="fas fa-building"></i> <strong>OLT</strong>: Optical Line Terminal monitoring</li>
+                <li><i class="fas fa-server"></i> <strong>Server/Router</strong>: Network equipment monitoring</li>
+                <li><i class="fas fa-home"></i> <strong>ONT</strong>: Customer premises equipment</li>
+                <li><i class="fas fa-wifi"></i> <strong>Access Point</strong>: Wireless equipment</li>
+            </ul>
+
+            <h4>🔧 SNMP Setup untuk XAMPP (Windows):</h4>
+            <div class="alert alert-info">
+                <h5>Step 1: Enable SNMP Extension di php.ini</h5>
+                <ol>
+                    <li>Buka file: <code>C:\xampp\php\php.ini</code></li>
+                    <li>Cari line: <code>;extension=snmp</code></li>
+                    <li>Uncomment dengan hapus semicolon: <code>extension=snmp</code></li>
+                    <li>Tambahkan konfigurasi SNMP:
+                        <pre><code class="language-ini">; SNMP Configuration untuk FTTH schematic NMS
+extension=snmp
+snmp.hide_warnings = 1
+snmp.timeout = 5000000
+snmp.retries = 2</code></pre>
+                    </li>
+                    <li>Restart Apache di XAMPP Control Panel</li>
+                </ol>
+            </div>
+
+            <div class="alert alert-warning">
+                <h5>Step 2: Install SNMP Tools (Optional)</h5>
+                <ol>
+                    <li>Download SNMP tools dari: <a href="https://www.ireasoning.com/download.shtml" target="_blank">iReasoning MIB Browser</a></li>
+                    <li>Atau install via Chocolatey: <code>choco install snmp-tools</code></li>
+                    <li>Test SNMP: <code>snmpwalk -v2c -c public 192.168.1.1 1.3.6.1.2.1.1</code></li>
+                </ol>
+            </div>
+
+            <div class="alert alert-success">
+                <h5>Step 3: Verify SNMP Extension</h5>
+                <ol>
+                    <li>Buat file test: <code>C:\xampp\htdocs\ftthnms\test_snmp.php</code></li>
+                    <li>Isi dengan:
+                        <pre><code class="language-php">&lt;?php
+// Test SNMP Extension
+if (extension_loaded('snmp')) {
+    echo "✅ SNMP Extension loaded successfully!";
+    echo "&lt;br&gt;SNMP Version: " . snmp_get_valueretrieval();
+} else {
+    echo "❌ SNMP Extension not loaded!";
+    echo "&lt;br&gt;Please check php.ini configuration";
+}
+?&gt;</code></pre>
+                    </li>
+                    <li>Akses: <code>http://localhost/ftthnms/test_snmp.php</code></li>
+                </ol>
+            </div>
+
+            <h4>SNMP Versions:</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Version</th>
+                            <th>Security</th>
+                            <th>Features</th>
+                            <th>Recommendation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>SNMPv1</strong></td><td><span class="badge bg-danger">Low</span></td><td>Basic</td><td>Avoid</td></tr>
+                        <tr><td><strong>SNMPv2c</strong></td><td><span class="badge bg-warning">Medium</span></td><td>Community-based</td><td>Compatibility</td></tr>
+                        <tr><td><strong>SNMPv3</strong></td><td><span class="badge bg-success">High</span></td><td>User-based security</td><td>Recommended</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Configuration Fields:</h4>
+            <pre><code>SNMP Settings:
+├── SNMP Enabled: [checkbox]
+├── Version: v1/v2c/v3 [dropdown]
+├── Community: public/private [text]
+├── Port: 161 [number]
+├── Username: [text] (v3 only)
+├── Auth Protocol: MD5/SHA [dropdown] (v3 only)
+├── Auth Password: [password] (v3 only)
+├── Priv Protocol: DES/AES [dropdown] (v3 only)
+└── Priv Password: [password] (v3 only)</code></pre>
+
+            <h3><i class="fas fa-chart-area emoji"></i>Monitoring Capabilities</h3>
+
+            <h4>Real-time Metrics:</h4>
+            <ul>
+                <li><strong>System Info</strong>: Hostname, uptime, description</li>
+                <li><strong>CPU Utilization</strong>: Processor usage percentage</li>
+                <li><strong>Memory Usage</strong>: RAM utilization</li>
+                <li><strong>Interface Status</strong>: Up/down, admin/operational status</li>
+                <li><strong>Bandwidth Utilization</strong>: In/out traffic dengan grafik</li>
+            </ul>
+
+            <h4>Interface Monitoring:</h4>
+            <ul>
+                <li><strong>Interface Discovery</strong>: Auto-discover network interfaces</li>
+                <li><strong>Persistent Storage</strong>: Interface data disimpan di database</li>
+                <li><strong>IP Address Mapping</strong>: Track IP per interface</li>
+                <li><strong>Topology Detection</strong>: Auto-detect device connections</li>
+                <li><strong>Traffic Monitoring</strong>: Real-time bandwidth usage</li>
+            </ul>
+
+            <h4>Optical Monitoring (for OLT/ONT):</h4>
+            <ul>
+                <li><strong>Tx Power</strong>: Transmit optical power (dBm)</li>
+                <li><strong>Rx Power</strong>: Receive optical power (dBm)</li>
+                <li><strong>Signal Quality</strong>: Link quality assessment</li>
+                <li><strong>Fiber Status</strong>: Cable integrity monitoring</li>
+            </ul>
+
+            <h3><i class="fas fa-desktop emoji"></i>SNMP Dashboard</h3>
+
+            <h4>Access SNMP Dashboard:</h4>
+            <ol>
+                <li>Login as Admin</li>
+                <li>Navigate: <code>http://localhost/ftthnms/snmp_dashboard.php</code></li>
+                <li>atau Sidebar → "SNMP Dashboard"</li>
+            </ol>
+
+            <h4>Dashboard Features:</h4>
+            <ul>
+                <li><strong>Device Overview</strong>: Summary semua SNMP-enabled devices</li>
+                <li><strong>Real-time Status</strong>: Current status semua devices</li>
+                <li><strong>Interface Summary</strong>: Network interfaces overview</li>
+                <li><strong>Topology Map</strong>: Visual device connections</li>
+                <li><strong>Alert Summary</strong>: Critical issues notification</li>
+            </ul>
+
+            <h4>Interface Monitoring Workflow:</h4>
+            <ol>
+                <li>Click device marker di peta</li>
+                <li>Click "Discover" button</li>
+                <li>System perform SNMP discovery:
+                    <ul>
+                        <li>Discover all network interfaces</li>
+                        <li>Get IP addresses per interface</li>
+                        <li>Store data to database</li>
+                        <li>Detect topology connections</li>
+                    </ul>
+                </li>
+                <li>Click "Interfaces" untuk view results:
+                    <ul>
+                        <li>Tab "Stored": Persistent interface data</li>
+                        <li>Tab "Real-time": Live traffic monitoring</li>
+                        <li>Tab "Topology": Device connections</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <div class="page-break"></div>
+
+        <section id="export-import">
+            <h1><i class="fas fa-exchange-alt emoji"></i>Export/Import KMZ</h1>
+
+            <h3><i class="fas fa-download emoji"></i>Export KMZ untuk Google Earth</h3>
+
+            <h4>Export Process:</h4>
+            <ol>
+                <li>Dashboard → Tombol "Export KMZ" (hijau)<br>
+                    atau Sidebar → "Export Data" → "Export ke KMZ"</li>
+                <li>System generate KMZ file dengan:
+                    <ul>
+                        <li>Semua FTTH items dengan styling</li>
+                        <li>Cable routes dengan color coding</li>
+                        <li>Complete information dalam popup</li>
+                        <li>Professional GIS formatting</li>
+                    </ul>
+                </li>
+                <li>File auto-download dengan timestamp:<br>
+                    Format: <code>"FTTH_Planner_Export_YYYY-MM-DD-HHMMSS.kmz"</code></li>
+            </ol>
+
+            <h4>KMZ Content:</h4>
+            <ul>
+                <li><strong>Items</strong>: Semua 11 kategori item dengan marker styling</li>
+                <li><strong>Routes</strong>: Cable routing dengan status-based colors</li>
+                <li><strong>Metadata</strong>: Complete item information</li>
+                <li><strong>Styling</strong>: Professional icons dan colors</li>
+            </ul>
+
+            <h4>Google Earth Viewing:</h4>
+            <ol>
+                <li>Download file KMZ</li>
+                <li>Open Google Earth Pro atau Google Earth Web</li>
+                <li>File → Open → Select KMZ file</li>
+                <li>Data akan muncul di layer panel</li>
+                <li>Click item untuk view detail popup</li>
+                <li>Use Google Earth tools untuk measurement, etc.</li>
+            </ol>
+
+            <h3><i class="fas fa-upload emoji"></i>Import KMZ/KML</h3>
+
+            <h4>Supported Formats:</h4>
+            <ul>
+                <li><strong>KMZ</strong>: Compressed KML files</li>
+                <li><strong>KML</strong>: Standard Google Earth format</li>
+                <li><strong>Geometries</strong>: Point, LineString, Polygon, MultiGeometry</li>
+            </ul>
+
+            <h4>Import Process:</h4>
+            <ol>
+                <li>Sidebar → "Import Data" → "Import dari KMZ/KML"</li>
+                <li>Upload file browser atau drag & drop</li>
+                <li>System parsing dan validation:
+                    <ul>
+                        <li>Auto-detect format</li>
+                        <li>Parse coordinates</li>
+                        <li>Validate data integrity</li>
+                        <li>Preview import data</li>
+                    </ul>
+                </li>
+                <li>Review preview:
+                    <ul>
+                        <li>Check items to be imported</li>
+                        <li>Verify coordinates</li>
+                        <li>Resolve any conflicts</li>
+                    </ul>
+                </li>
+                <li>Confirm import:
+                    <ul>
+                        <li>Batch processing untuk large files</li>
+                        <li>Progress indicator</li>
+                        <li>Error reporting jika ada</li>
+                    </ul>
+                </li>
+                <li>Import complete:
+                    <ul>
+                        <li>Items appear on map</li>
+                        <li>Statistics updated</li>
+                        <li>Import summary report</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h4>Data Mapping:</h4>
+            <pre><code>Import Mapping:
+├── Point → FTTH Item (auto-detect type)
+├── LineString → Cable Route
+├── Polygon → Convert to Point (centroid)
+├── Name → Item name
+├── Description → Item description
+└── Coordinates → Latitude/longitude</code></pre>
+
+            <h3><i class="fas fa-globe emoji"></i>Professional GIS Integration</h3>
+
+            <h4>Compatible Software:</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Software</th>
+                            <th>Type</th>
+                            <th>Platform</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Google Earth Pro</strong></td><td>Desktop application</td><td>Windows/Mac/Linux</td></tr>
+                        <tr><td><strong>Google Earth Web</strong></td><td>Browser-based</td><td>Any Browser</td></tr>
+                        <tr><td><strong>QGIS</strong></td><td>Open-source GIS</td><td>Cross-platform</td></tr>
+                        <tr><td><strong>ArcGIS</strong></td><td>Professional GIS</td><td>Desktop/Web</td></tr>
+                        <tr><td><strong>AutoCAD Map 3D</strong></td><td>CAD dengan GIS</td><td>Windows</td></tr>
+                        <tr><td><strong>Avenza Maps</strong></td><td>Mobile GIS</td><td>iOS/Android</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <section id="troubleshooting">
+            <h1><i class="fas fa-tools emoji"></i>Troubleshooting</h1>
+
+            <h3><i class="fas fa-exclamation-triangle emoji"></i>Installation Issues</h3>
+
+            <h4>SNMP Issues:</h4>
+
+            <div class="alert alert-danger">
+                <h5>SNMP Extension Not Working:</h5>
+                <p><strong>Causes:</strong></p>
+                <ul>
+                    <li>SNMP extension not enabled di php.ini</li>
+                    <li>Missing SNMP libraries di Windows</li>
+                    <li>Firewall blocking SNMP port 161</li>
+                    <li>SNMP service not running di target device</li>
+                </ul>
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li><strong>Windows/XAMPP:</strong>
+                        <ul>
+                            <li>Check php.ini: <code>extension=snmp</code> harus uncommented</li>
+                            <li>Install SNMP tools: <code>choco install snmp-tools</code></li>
+                            <li>Restart Apache setelah edit php.ini</li>
+                        </ul>
+                    </li>
+                    <li><strong>Linux:</strong>
+                        <ul>
+                            <li>Install SNMP: <code>sudo apt install snmp snmpd php8.1-snmp</code></li>
+                            <li>Configure snmpd.conf dengan community string</li>
+                            <li>Restart services: <code>sudo systemctl restart snmpd apache2</code></li>
+                        </ul>
+                    </li>
+                    <li><strong>Test SNMP:</strong>
+                        <pre><code class="language-bash"># Test SNMP connectivity
+snmpwalk -v2c -c public [TARGET_IP] 1.3.6.1.2.1.1.1.0
+
+# Test dari PHP
+php -r "if(extension_loaded('snmp')) echo 'SNMP OK'; else echo 'SNMP Missing';"</code></pre>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="alert alert-warning">
+                <h5>SNMP Discovery Errors:</h5>
+                <p><strong>Common Errors:</strong></p>
+                <ul>
+                    <li>"Network error: SyntaxError: Unexpected token '<'" - Apache not running</li>
+                    <li>"No response from device" - SNMP community string salah</li>
+                    <li>"Timeout" - Network connectivity issues</li>
+                    <li>"Authentication failed" - SNMPv3 credentials salah</li>
+                </ul>
+                <p><strong>Debug Steps:</strong></p>
+                <ol>
+                    <li>Check Apache status: <code>http://localhost/ftthnms/</code></li>
+                    <li>Verify SNMP extension: <code>php -m | grep snmp</code></li>
+                    <li>Test device connectivity: <code>ping [TARGET_IP]</code></li>
+                    <li>Check SNMP manually: <code>snmpwalk -v2c -c public [TARGET_IP] 1.3.6.1.2.1.1</code></li>
+                </ol>
+            </div>
+
+            <h4>XAMPP Issues:</h4>
+
+            <div class="alert alert-danger">
+                <h5>Apache Won't Start:</h5>
+                <p><strong>Causes:</strong></p>
+                <ul>
+                    <li>Port 80/443 already in use (Skype, IIS)</li>
+                    <li>Antivirus blocking Apache</li>
+                    <li>Permission issues</li>
+                </ul>
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Stop conflicting services:
+                        <ul>
+                            <li>Skype: Settings → Advanced → Connection → Uncheck port 80</li>
+                            <li>IIS: Control Panel → Programs → Turn off IIS</li>
+                        </ul>
+                    </li>
+                    <li>Run XAMPP as Administrator</li>
+                    <li>Add XAMPP to antivirus exceptions</li>
+                    <li>Change Apache ports if needed (httpd.conf)</li>
+                </ol>
+            </div>
+
+            <div class="alert alert-warning">
+                <h5>MySQL Won't Start:</h5>
+                <p><strong>Causes:</strong></p>
+                <ul>
+                    <li>Port 3306 in use by another MySQL service</li>
+                    <li>Corrupt MySQL data</li>
+                    <li>Permission issues</li>
+                </ul>
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Stop other MySQL services</li>
+                    <li>Check Windows Services for MySQL</li>
+                    <li>Reset MySQL data directory</li>
+                    <li>Run XAMPP as Administrator</li>
+                </ol>
+            </div>
+
+            <h4>Database Issues:</h4>
+
+            <div class="alert alert-info">
+                <h5>Connection Failed:</h5>
+                <p>Error: "Connection failed: Access denied"</p>
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Check database credentials in config/database.php</li>
+                    <li>Verify MySQL service running</li>
+                    <li>Test connection: <code>mysql -u root -p</code></li>
+                    <li>Check user permissions: <code>SHOW GRANTS FOR 'user'@'localhost';</code></li>
+                </ol>
+            </div>
+
+            <h3><i class="fas fa-globe emoji"></i>Application Issues</h3>
+
+            <h4>Login Problems:</h4>
+
+            <div class="alert alert-success">
+                <h5>Invalid Credentials:</h5>
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Use default accounts: <code>admin/password</code> atau <code>teknisi1/password</code></li>
+                    <li>Reset password manually:
+                        <pre><code class="language-sql">UPDATE users SET password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi' WHERE username = 'admin';
+-- Password becomes: password</code></pre>
+                    </li>
+                    <li>Check user status: <code>SELECT * FROM users WHERE username = 'admin';</code></li>
+                </ol>
+            </div>
+
+            <h4>Map Issues:</h4>
+
+            <div class="alert alert-warning">
+                <h5>Map Not Loading:</h5>
+                <p><strong>Causes:</strong></p>
+                <ul>
+                    <li>No internet connection</li>
+                    <li>JavaScript errors</li>
+                    <li>Tile server issues</li>
+                </ul>
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Check internet connectivity</li>
+                    <li>Open browser console (F12) untuk errors</li>
+                    <li>Try different map layer: OpenStreetMap, Satellite view, CartoDB</li>
+                    <li>Clear browser cache</li>
+                </ol>
+            </div>
+
+            <h3><i class="fas fa-rocket emoji"></i>Performance Issues</h3>
+
+            <h4>Database Optimization:</h4>
+            <pre><code class="language-sql">-- Add missing indexes
+CREATE INDEX idx_coordinates ON ftth_items(latitude, longitude);
+CREATE INDEX idx_item_type ON ftth_items(item_type_id);
+CREATE INDEX idx_route_items ON cable_routes(from_item_id, to_item_id);
+
+-- Optimize tables
+OPTIMIZE TABLE ftth_items;
+OPTIMIZE TABLE cable_routes;
+
+-- Check slow queries
+SHOW FULL PROCESSLIST;</code></pre>
+
+            <h4>Server Optimization:</h4>
+            <pre><code>1. Increase PHP memory: memory_limit = 256M
+2. Enable opcache: opcache.enable = 1, opcache.memory_consumption = 128
+3. Enable compression: zlib.output_compression = On
+4. Browser caching: Add Expires headers for static files</code></pre>
+        </section>
+
+        <div class="page-break"></div>
+
+        <section id="faq">
+            <h1><i class="fas fa-question-circle emoji"></i>FAQ</h1>
+
+            <h3><i class="fas fa-lightbulb emoji"></i>General Questions</h3>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: Apa system requirements minimum untuk FTTH schematic NMS?</h5>
+                    <p class="card-text">A: Windows/Linux dengan PHP 8.0+, MySQL 5.7+, 4GB RAM, dan browser modern dengan JavaScript enabled.</p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: Apakah bisa diinstall di shared hosting?</h5>
+                    <p class="card-text">A: Ya, asalkan hosting support PHP 8.0+, MySQL, dan extension yang diperlukan (PDO, JSON, SNMP).</p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: Berapa banyak item yang bisa dihandle?</h5>
+                    <p class="card-text">A: System bisa handle 10,000+ items dengan performa optimal jika database dan server dikonfigurasi dengan baik.</p>
+                </div>
+            </div>
+
+            <h3><i class="fas fa-cog emoji"></i>Technical Questions</h3>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: Bagaimana cara backup data?</h5>
+                    <div class="card-text">
+                        <pre><code class="language-sql">-- Database backup FTTH schematic NMS
+mysqldump -u username -p ftthnms > backup_ftthnms_$(date +%Y%m%d_%H%M%S).sql
+
+-- Complete backup dengan struktur dan data
+mysqldump -u username -p --single-transaction --routines --triggers ftthnms > full_backup.sql
+
+-- File backup aplikasi
+tar -czf ftthnms_backup_$(date +%Y%m%d).tar.gz /path/to/ftthnms/
+
+-- Backup hanya tabel core (tanpa logs)
+mysqldump -u username -p ftthnms ftth_items cable_routes users item_types > core_backup.sql</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: Apakah bisa integrate dengan system lain?</h5>
+                    <p class="card-text">A: Ya, aplikasi menyediakan REST API yang bisa diintegrasikan dengan system external.</p>
+                </div>
+            </div>
+
+            <h3><i class="fas fa-shield-alt emoji"></i>Security Questions</h3>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: Bagaimana cara change password?</h5>
+                    <p class="card-text">A: Login → Profile → Change Password, atau admin bisa reset password user lain di User Management.</p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: Apakah data encrypted?</h5>
+                    <p class="card-text">A: Password di-hash dengan bcrypt, session data protected, dan HTTPS recommended untuk production.</p>
+                </div>
+            </div>
+
+            <h3><i class="fas fa-chart-line emoji"></i>SNMP Questions</h3>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: Device mana yang support SNMP monitoring?</h5>
+                    <p class="card-text">A: OLT, Server/Router, ONT, dan Access Point dengan SNMP enabled.</p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: SNMP version mana yang paling baik?</h5>
+                    <p class="card-text">A: SNMPv3 untuk security, SNMPv2c untuk compatibility, hindari SNMPv1.</p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: Bagaimana cara setup SNMP di XAMPP Windows?</h5>
+                    <p class="card-text">A: Edit php.ini, uncomment <code>extension=snmp</code>, restart Apache, dan test dengan <code>php -m | grep snmp</code>.</p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: SNMP tidak berfungsi di Linux, apa solusinya?</h5>
+                    <p class="card-text">A: Install <code>php8.1-snmp</code>, configure <code>/etc/snmp/snmpd.conf</code>, dan restart services dengan <code>sudo systemctl restart snmpd apache2</code>.</p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: Error "Network error: SyntaxError: Unexpected token '<'" saat SNMP discovery?</h5>
+                    <p class="card-text">A: Ini biasanya karena Apache tidak running atau port conflict. Check Apache status dan restart XAMPP services.</p>
+                </div>
+            </div>
+
+            <h3><i class="fas fa-map emoji"></i>Maps & Export Questions</h3>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: Apakah perlu internet untuk maps?</h5>
+                    <p class="card-text">A: Ya, maps tiles dimuat dari internet. Untuk offline usage, consider caching solutions.</p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Q: Format apa yang support untuk import?</h5>
+                    <p class="card-text">A: KMZ, KML, dan berbagai geometry types (Point, LineString, Polygon).</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <!-- Conclusion -->
+        <section id="kesimpulan">
+            <h1><i class="fas fa-flag-checkered emoji"></i>Kesimpulan</h1>
+
+            <div class="highlight">
+                <p><strong>FTTH schematic NETWORK MANAGEMENT SYSTEM (FTTH schematic NMS)</strong> adalah solusi comprehensive untuk monitoring dan manajemen infrastruktur FTTH dengan fitur:</p>
+            </div>
+
+            <h3><i class="fas fa-star emoji"></i>Key Benefits:</h3>
+            <ul class="status-completed">
+                <li><i class="fas fa-check"></i> <strong>Complete Infrastructure Management</strong> - 11 kategori item FTTH</li>
+                <li><i class="fas fa-check"></i> <strong>Interactive Mapping</strong> - Drag & drop, routing, visualization</li>
+                <li><i class="fas fa-check"></i> <strong>SNMP Monitoring</strong> - Real-time device monitoring</li>
+                <li><i class="fas fa-check"></i> <strong>Authentication System</strong> - Role-based security</li>
+                <li><i class="fas fa-check"></i> <strong>Professional Export</strong> - Google Earth integration</li>
+                <li><i class="fas fa-check"></i> <strong>Auto-Generation</strong> - Smart infrastructure planning</li>
+                <li><i class="fas fa-check"></i> <strong>Responsive Design</strong> - Works on all devices</li>
+                <li><i class="fas fa-check"></i> <strong>Open Source</strong> - Full source code ownership</li>
+            </ul>
+
+            <h3><i class="fas fa-target emoji"></i>Perfect For:</h3>
+            <ul>
+                <li><i class="fas fa-building emoji"></i> <strong>ISP & Telco Companies</strong> - Network infrastructure planning</li>
+                <li><i class="fas fa-hard-hat emoji"></i> <strong>FTTH Contractors</strong> - Site survey dan installation</li>
+                <li><i class="fas fa-university emoji"></i> <strong>Government Projects</strong> - Infrastructure development</li>
+                <li><i class="fas fa-graduation-cap emoji"></i> <strong>Educational Institutions</strong> - Network learning</li>
+                <li><i class="fas fa-user-tie emoji"></i> <strong>Network Consultants</strong> - Professional planning tools</li>
+            </ul>
+
+            <h3><i class="fas fa-rocket emoji"></i>Production Ready:</h3>
+            <ul>
+                <li><strong>Enterprise-grade architecture</strong> dengan robust database design</li>
+                <li><strong>Scalable untuk large deployments</strong> (10K+ items)</li>
+                <li><strong>Professional security</strong> dengan encryption dan role-based access</li>
+                <li><strong>Comprehensive documentation</strong> dengan training materials</li>
+                <li><strong>Active support</strong> dan regular updates</li>
+            </ul>
+
+            <div class="text-center mt-5 mb-4">
+                <div class="alert alert-success">
+                    <h2><i class="fas fa-trophy emoji"></i>SELAMAT!</h2>
+                    <p class="lead">Anda sekarang memiliki panduan lengkap untuk menggunakan FTTH schematic NETWORK MANAGEMENT SYSTEM.</p>
+                    <p><strong>Mulai planning infrastruktur FTTH Anda dengan tools professional ini!</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Developer Credit Section -->
+        <div class="developer-credit py-5 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center mb-4 mb-md-0">
+                        <img src="saputrabudi.jpg" alt="Saputra Budi" class="img-fluid rounded-circle shadow" style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #3498db;">
+                    </div>
+                    <div class="col-md-9">
+                        <h3 class="mb-3">
+                            <i class="fas fa-code text-primary"></i> 
+                            <strong>Developed by Saputra Budi</strong>
+                        </h3>
+                        <p class="lead mb-3">IT Network and App Development Practitioner</p>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h5><i class="fas fa-map-marker-alt text-danger"></i> Alamat:</h5>
+                                <p class="mb-3">
+                                    Jln Abd. Latuf, BTN Mira Baliase B2/14<br>
+                                    Baliase, Kec. Marawola, Kab. Sigi<br>
+                                    Sulawesi Tengah, Indonesia
+                                </p>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5><i class="fas fa-envelope text-primary"></i> Kontak:</h5>
+                                <p class="mb-2">
+                                    <i class="fas fa-envelope"></i> 
+                                    <a href="mailto:aptel.my@gmail.com" class="text-decoration-none">aptel.my@gmail.com</a>
+                                </p>
+                                <p class="mb-2">
+                                    <i class="fab fa-whatsapp text-success"></i> 
+                                    <a href="https://wa.me/6208114540900" class="text-decoration-none">08114540900</a>
+                                </p>
+                                <p class="mb-3">
+                                    <i class="fab fa-whatsapp text-success"></i> 
+                                    <a href="https://wa.me/62085556000900" class="text-decoration-none">085556000900</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <h5><i class="fas fa-globe text-info"></i> Profile & Portfolio:</h5>
+                            
+                            <!-- Web view buttons -->
+                            <div class="d-flex flex-wrap gap-3">
+                                <a href="https://github.com/saputrabudi" target="_blank" class="btn btn-outline-dark btn-sm">
+                                    <i class="fab fa-github"></i> GitHub Portfolio
+                                </a>
+                                <a href="https://ollama.com/saputrabudi" target="_blank" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-robot"></i> AI Models (Ollama)
+                                </a>
+                            </div>
+                            
+                            <!-- Print view links -->
+                            <div class="print-links mt-2">
+                                <p class="mb-2">
+                                    <i class="fab fa-github"></i> <strong>GitHub Portfolio:</strong> 
+                                    <a href="https://github.com/saputrabudi">https://github.com/saputrabudi</a>
+                                </p>
+                                <p class="mb-3">
+                                    <i class="fas fa-robot"></i> <strong>AI Models (Ollama):</strong> 
+                                    <a href="https://ollama.com/saputrabudi">https://ollama.com/saputrabudi</a>
+                                </p>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <h6>🤖 <strong>AI Models Portfolio:</strong></h6>
+                                <ul class="list-unstyled small">
+                                    <li>• <strong>ExaBot-Micro:</strong> AI Assistant untuk Customer Service & Marketing ChatBot</li>
+                                    <li>• <strong>ExaBot-SuperCS:</strong> Natural Language Processing untuk Customer Support</li>
+                                    <li>• <strong>ExaBot-Matriks:</strong> AI untuk Analisis Matematika & Trading Analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Information -->
+        <div class="footer text-center">
+            <div class="container">
+                <p><i class="fas fa-calendar emoji"></i><em>Last Updated: 2025-01-18</em></p>
+                <p><i class="fas fa-tag emoji"></i><em>Version: 4.1.0</em></p>
+                <p><i class="fas fa-book emoji"></i><em>Documentation: Complete User Guide</em></p>
+                <p class="mt-3"><small>© 2025 FTTH schematic NETWORK MANAGEMENT SYSTEM - Developed with ❤️ by Saputra Budi</small></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Prism.js for Code Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-apache.min.js"></script>
+
+    <!-- Custom JavaScript for smooth scrolling -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Print functionality
+        function printTutorial() {
+            window.print();
+        }
+
+        // Image click functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click functionality to dashboard images
+            const dashboardImages = document.querySelectorAll('.dashboard-image');
+            
+            dashboardImages.forEach(function(img) {
+                img.addEventListener('click', function() {
+                    // Create modal for image preview
+                    const modal = document.createElement('div');
+                    modal.style.cssText = `
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0,0,0,0.8);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 9999;
+                        cursor: pointer;
+                    `;
+                    
+                    const modalImg = document.createElement('img');
+                    modalImg.src = this.src;
+                    modalImg.style.cssText = `
+                        max-width: 90%;
+                        max-height: 90%;
+                        border-radius: 8px;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                    `;
+                    
+                    modal.appendChild(modalImg);
+                    document.body.appendChild(modal);
+                    
+                    // Close modal on click
+                    modal.addEventListener('click', function() {
+                        document.body.removeChild(modal);
+                    });
+                    
+                    // Close modal on ESC key
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape' && document.body.contains(modal)) {
+                            document.body.removeChild(modal);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
